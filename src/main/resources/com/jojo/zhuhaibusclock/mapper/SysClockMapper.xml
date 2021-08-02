@@ -33,6 +33,23 @@
                  inner join sys_clock c on uc.clock_id = c.id
         where u.id = #{userId}
     </select>
+    <select id="selectUserAndClockById" resultType="com.jojo.zhuhaibusclock.model.SysClock">
+        select c.id,
+               c.alarm_time,
+               c.repeat_time,
+               c.is_enable,
+               c.route_id,
+               c.segment_id,
+               c.station_id,
+               u.id          "user.id",
+               u.open_id     "user.openId",
+               u.session_key "user.sessionKey",
+               u.bark_key    "user.barkKey"
+        from sys_clock c
+                 inner join sys_user_clock uc on c.id = uc.clock_id
+                 inner join sys_user u on uc.user_id = u.id
+        where c.id = #{id}
+    </select>
     <delete id="deleteById" parameterType="java.lang.Long">
         delete
         from sys_clock

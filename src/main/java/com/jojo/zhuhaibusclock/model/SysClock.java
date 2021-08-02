@@ -8,7 +8,7 @@ import lombok.Data;
 /**
  * sys_clock
  *
- * @author
+ * @author JoJoWu
  */
 @Data
 public class SysClock implements Serializable {
@@ -46,6 +46,8 @@ public class SysClock implements Serializable {
      * 车站ID
      */
     private String stationId;
+
+    private SysUser user;
 
     private static final long serialVersionUID = 1L;
 }
