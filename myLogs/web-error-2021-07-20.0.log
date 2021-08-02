@@ -1,0 +1,30 @@
+2021-07-20 10:16:08.647 [restartedMain] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.jojo.zhuhaibusclock.controller.ClockController required a bean of type 'com.jojo.zhuhaibusclock.service.ClockService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.jojo.zhuhaibusclock.service.ClockService' in your configuration.
+
+2021-07-20 10:52:30.258 [restartedMain] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.jojo.zhuhaibusclock.controller.ClockController required a bean of type 'com.jojo.zhuhaibusclock.service.ClockService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.jojo.zhuhaibusclock.service.ClockService' in your configuration.
+

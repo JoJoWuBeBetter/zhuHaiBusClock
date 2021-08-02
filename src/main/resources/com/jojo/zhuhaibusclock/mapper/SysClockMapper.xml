@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jojo.zhuhaibusclock.mapper.SysClockMapper">
+    <resultMap id="BaseResultMap" type="com.jojo.zhuhaibusclock.model.SysClock">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="alarm_time" jdbcType="TIME" property="alarmTime"/>
+        <result column="repeat_time" jdbcType="VARCHAR" property="repeatTime"/>
+        <result column="is_enable" jdbcType="BOOLEAN" property="isEnable"/>
+        <result column="route_id" jdbcType="BIGINT" property="routeId"/>
+        <result column="segment_id" jdbcType="BIGINT" property="segmentId"/>
+        <result column="station_id" jdbcType="VARCHAR" property="stationId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        , alarm_time, repeat_time, is_enable, route_id, segment_id, station_id
+    </sql>
+    <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_clock
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectClockByUserId" resultType="com.jojo.zhuhaibusclock.model.SysClock">
+        select c.id,
+               alarm_time,
+               repeat_time,
+               is_enable,
+               route_id,
+               segment_id,
+               station_id
+        from sys_user u
+                 inner join sys_user_clock uc on u.id = uc.user_id
+                 inner join sys_clock c on uc.clock_id = c.id
+        where u.id = #{userId}
+    </select>
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete
+        from sys_clock
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.jojo.zhuhaibusclock.model.SysClock"
+            useGeneratedKeys="true">
+        insert into sys_clock (alarm_time, repeat_time, is_enable,
+                               route_id, segment_id, station_id)
+        values (#{alarmTime,jdbcType=TIME}, #{repeatTime,jdbcType=VARCHAR}, #{isEnable,jdbcType=BOOLEAN},
+                #{routeId,jdbcType=BIGINT}, #{segmentId,jdbcType=BIGINT}, #{stationId,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.jojo.zhuhaibusclock.model.SysClock"
+            useGeneratedKeys="true">
+        insert into sys_clock
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="alarmTime != null">
+                alarm_time,
+            </if>
+            <if test="repeatTime != null">
+                repeat_time,
+            </if>
+            <if test="isEnable != null">
+                is_enable,
+            </if>
+            <if test="routeId != null">
+                route_id,
+            </if>
+            <if test="segmentId != null">
+                segment_id,
+            </if>
+            <if test="stationId != null">
+                station_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="alarmTime != null">
+                #{alarmTime,jdbcType=TIME},
+            </if>
+            <if test="repeatTime != null">
+                #{repeatTime,jdbcType=VARCHAR},
+            </if>
+            <if test="isEnable != null">
+                #{isEnable,jdbcType=BOOLEAN},
+            </if>
+            <if test="routeId != null">
+                #{routeId,jdbcType=BIGINT},
+            </if>
+            <if test="segmentId != null">
+                #{segmentId,jdbcType=BIGINT},
+            </if>
+            <if test="stationId != null">
+                #{stationId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByIdSelective" parameterType="com.jojo.zhuhaibusclock.model.SysClock">
+        update sys_clock
+        <set>
+            <if test="alarmTime != null">
+                alarm_time = #{alarmTime,jdbcType=TIME},
+            </if>
+            <if test="repeatTime != null">
+                repeat_time = #{repeatTime,jdbcType=VARCHAR},
+            </if>
+            <if test="isEnable != null">
+                is_enable = #{isEnable,jdbcType=BOOLEAN},
+            </if>
+            <if test="routeId != null">
+                route_id = #{routeId,jdbcType=BIGINT},
+            </if>
+            <if test="segmentId != null">
+                segment_id = #{segmentId,jdbcType=BIGINT},
+            </if>
+            <if test="stationId != null">
+                station_id = #{stationId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateById" parameterType="com.jojo.zhuhaibusclock.model.SysClock">
+        update sys_clock
+        set alarm_time  = #{alarmTime,jdbcType=TIME},
+            repeat_time = #{repeatTime,jdbcType=VARCHAR},
+            is_enable   = #{isEnable,jdbcType=BOOLEAN},
+            route_id    = #{routeId,jdbcType=BIGINT},
+            segment_id  = #{segmentId,jdbcType=BIGINT},
+            station_id  = #{stationId,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

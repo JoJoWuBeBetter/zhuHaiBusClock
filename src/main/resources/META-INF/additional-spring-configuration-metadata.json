@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "zhuhai-bus-clock.wx-app-id",
+      "type": "java.lang.String",
+      "description": "Description for zhuhai-bus-clock.wx-app-id."
+    },
+    {
+      "name": "zhuhai-bus-clock.wx-app-secret",
+      "type": "java.lang.String",
+      "description": "Description for zhuhai-bus-clock.wx-app-secret."
+    },
+    {
+      "name": "zhuhai-bus-clock.test-bark-key",
+      "type": "java.lang.String",
+      "description": "Description for zhuhai-bus-clock.test-bark-key."
+    }
+  ] }

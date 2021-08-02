@@ -1,0 +1,381 @@
+2021-07-27 16:32:49.684 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - Starting BarkServiceTest using Java 15.0.2 on DESKTOP-FT3ALHB with PID 52752 (started by JoJoWu in D:\IdeaProjects\zhuHaiBusClock)
+2021-07-27 16:32:49.684 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+2021-07-27 16:32:49.687 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - No active profile set, falling back to default profiles: default
+2021-07-27 16:32:50.562 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:32:50.564 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-07-27 16:32:50.577 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 JDBC repository interfaces.
+2021-07-27 16:32:50.582 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:32:50.582 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-07-27 16:32:50.589 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2021-07-27 16:32:50.598 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:32:50.599 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-07-27 16:32:50.608 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2021-07-27 16:32:51.304 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 16:32:51.361 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 16:32:51.402 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-07-27 16:32:51.446 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-07-27 16:32:51.563 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-07-27 16:32:51.722 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2021-07-27 16:32:51.986 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-07-27 16:32:51.995 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-07-27 16:32:52.556 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2021-07-27 16:32:52.558 [main] INFO  org.quartz.simpl.SimpleThreadPool - Job execution threads will use class loader of thread: main
+2021-07-27 16:32:52.564 [main] INFO  org.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-07-27 16:32:52.564 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2021-07-27 16:32:52.566 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Using db table-based data access locking (synchronization).
+2021-07-27 16:32:52.568 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - JobStoreCMT initialized.
+2021-07-27 16:32:52.568 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is not clustered.
+
+2021-07-27 16:32:52.568 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'scheduler' initialized from an externally provided properties instance.
+2021-07-27 16:32:52.568 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2021-07-27 16:32:52.568 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6ef0a6c6
+2021-07-27 16:32:53.186 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-07-27 16:32:53.735 [main] INFO  o.s.scheduling.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2021-07-27 16:32:53.737 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Freed 0 triggers from 'acquired' / 'blocked' state.
+2021-07-27 16:32:53.739 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Recovering 0 jobs that were in-progress at the time of the last shut-down.
+2021-07-27 16:32:53.739 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Recovery complete.
+2021-07-27 16:32:53.740 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Removed 0 'complete' triggers.
+2021-07-27 16:32:53.740 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Removed 0 stale fired job entries.
+2021-07-27 16:32:53.741 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED started.
+2021-07-27 16:32:53.753 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - Started BarkServiceTest in 4.395 seconds (JVM running for 5.142)
+2021-07-27 16:32:54.191 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/a5LUnTDBn54pjPAKKPxEi5/test h2
+2021-07-27 16:32:54.232 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 400 https://api.day.app/a5LUnTDBn54pjPAKKPxEi5/test (40ms, 141-byte body)
+2021-07-27 16:32:54.335 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/a5LUnTDBn54pjPAKKPxEi5/test h2
+2021-07-27 16:32:54.372 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 400 https://api.day.app/a5LUnTDBn54pjPAKKPxEi5/test (36ms, 141-byte body)
+2021-07-27 16:32:54.474 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/a5LUnTDBn54pjPAKKPxEi5/test h2
+2021-07-27 16:32:54.510 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 400 https://api.day.app/a5LUnTDBn54pjPAKKPxEi5/test (35ms, 141-byte body)
+2021-07-27 16:32:54.525 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused.
+2021-07-27 16:32:54.527 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-07-27 16:32:54.533 [SpringContextShutdownHook] INFO  o.s.scheduling.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2021-07-27 16:32:54.533 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutting down.
+2021-07-27 16:32:54.533 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused.
+2021-07-27 16:32:54.569 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutdown complete.
+2021-07-27 16:32:54.570 [SpringContextShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-07-27 16:32:54.571 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-27 16:32:54.575 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2021-07-27 16:35:37.651 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - Starting BarkServiceTest using Java 15.0.2 on DESKTOP-FT3ALHB with PID 52692 (started by JoJoWu in D:\IdeaProjects\zhuHaiBusClock)
+2021-07-27 16:35:37.652 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+2021-07-27 16:35:37.653 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - No active profile set, falling back to default profiles: default
+2021-07-27 16:35:38.481 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:35:38.482 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-07-27 16:35:38.493 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
+2021-07-27 16:35:38.501 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:35:38.502 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-07-27 16:35:38.510 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2021-07-27 16:35:38.521 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:35:38.522 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-07-27 16:35:38.531 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2021-07-27 16:35:39.193 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 16:35:39.240 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 16:35:39.276 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-07-27 16:35:39.309 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-07-27 16:35:39.388 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-07-27 16:35:39.541 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2021-07-27 16:35:39.660 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-07-27 16:35:39.666 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-07-27 16:35:40.127 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2021-07-27 16:35:40.128 [main] INFO  org.quartz.simpl.SimpleThreadPool - Job execution threads will use class loader of thread: main
+2021-07-27 16:35:40.133 [main] INFO  org.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-07-27 16:35:40.133 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2021-07-27 16:35:40.136 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Using db table-based data access locking (synchronization).
+2021-07-27 16:35:40.137 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - JobStoreCMT initialized.
+2021-07-27 16:35:40.137 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is not clustered.
+
+2021-07-27 16:35:40.137 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'scheduler' initialized from an externally provided properties instance.
+2021-07-27 16:35:40.137 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2021-07-27 16:35:40.138 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@22fb727c
+2021-07-27 16:35:40.734 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-07-27 16:35:41.270 [main] INFO  o.s.scheduling.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2021-07-27 16:35:41.272 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Freed 0 triggers from 'acquired' / 'blocked' state.
+2021-07-27 16:35:41.273 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Recovering 0 jobs that were in-progress at the time of the last shut-down.
+2021-07-27 16:35:41.274 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Recovery complete.
+2021-07-27 16:35:41.275 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Removed 0 'complete' triggers.
+2021-07-27 16:35:41.275 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Removed 0 stale fired job entries.
+2021-07-27 16:35:41.276 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED started.
+2021-07-27 16:35:41.285 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - Started BarkServiceTest in 3.947 seconds (JVM running for 4.613)
+2021-07-27 16:35:41.697 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test h2
+2021-07-27 16:35:41.963 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 200 https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test (265ms, 55-byte body)
+2021-07-27 16:35:41.978 [main] INFO  c.jojo.zhuhaibusclock.service.impl.BarkServiceImpl - {"code":200,"message":"success","timestamp":1627374940}
+2021-07-27 16:35:41.984 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused.
+2021-07-27 16:35:41.986 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-07-27 16:35:41.992 [SpringContextShutdownHook] INFO  o.s.scheduling.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2021-07-27 16:35:41.992 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutting down.
+2021-07-27 16:35:41.992 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused.
+2021-07-27 16:35:42.136 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutdown complete.
+2021-07-27 16:35:42.137 [SpringContextShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-07-27 16:35:42.139 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-27 16:35:42.143 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2021-07-27 16:35:59.481 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - Starting BarkServiceTest using Java 15.0.2 on DESKTOP-FT3ALHB with PID 38372 (started by JoJoWu in D:\IdeaProjects\zhuHaiBusClock)
+2021-07-27 16:35:59.483 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - No active profile set, falling back to default profiles: default
+2021-07-27 16:35:59.485 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+2021-07-27 16:36:00.273 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:36:00.274 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-07-27 16:36:00.288 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
+2021-07-27 16:36:00.294 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:36:00.295 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-07-27 16:36:00.302 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2021-07-27 16:36:00.311 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:36:00.311 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-07-27 16:36:00.320 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2021-07-27 16:36:00.927 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 16:36:00.976 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 16:36:01.011 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-07-27 16:36:01.055 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-07-27 16:36:01.132 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-07-27 16:36:01.273 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2021-07-27 16:36:01.394 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-07-27 16:36:01.402 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-07-27 16:36:01.877 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2021-07-27 16:36:01.878 [main] INFO  org.quartz.simpl.SimpleThreadPool - Job execution threads will use class loader of thread: main
+2021-07-27 16:36:01.883 [main] INFO  org.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-07-27 16:36:01.883 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2021-07-27 16:36:01.886 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Using db table-based data access locking (synchronization).
+2021-07-27 16:36:01.887 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - JobStoreCMT initialized.
+2021-07-27 16:36:01.887 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is not clustered.
+
+2021-07-27 16:36:01.887 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'scheduler' initialized from an externally provided properties instance.
+2021-07-27 16:36:01.887 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2021-07-27 16:36:01.888 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@440cbb24
+2021-07-27 16:36:02.485 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-07-27 16:36:03.012 [main] INFO  o.s.scheduling.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2021-07-27 16:36:03.014 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Freed 0 triggers from 'acquired' / 'blocked' state.
+2021-07-27 16:36:03.015 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Recovering 0 jobs that were in-progress at the time of the last shut-down.
+2021-07-27 16:36:03.015 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Recovery complete.
+2021-07-27 16:36:03.015 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Removed 0 'complete' triggers.
+2021-07-27 16:36:03.016 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Removed 0 stale fired job entries.
+2021-07-27 16:36:03.017 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED started.
+2021-07-27 16:36:03.028 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - Started BarkServiceTest in 3.863 seconds (JVM running for 4.517)
+2021-07-27 16:36:03.447 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test h2
+2021-07-27 16:36:03.715 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 200 https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test (267ms, 55-byte body)
+2021-07-27 16:36:03.728 [main] INFO  c.jojo.zhuhaibusclock.service.impl.BarkServiceImpl - {"code":200,"message":"success","timestamp":1627374962}
+2021-07-27 16:36:03.734 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused.
+2021-07-27 16:36:03.735 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-07-27 16:36:03.741 [SpringContextShutdownHook] INFO  o.s.scheduling.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2021-07-27 16:36:03.741 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutting down.
+2021-07-27 16:36:03.741 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused.
+2021-07-27 16:36:03.886 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutdown complete.
+2021-07-27 16:36:03.887 [SpringContextShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-07-27 16:36:03.889 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-27 16:36:03.893 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2021-07-27 16:36:09.251 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - Starting BarkServiceTest using Java 15.0.2 on DESKTOP-FT3ALHB with PID 52052 (started by JoJoWu in D:\IdeaProjects\zhuHaiBusClock)
+2021-07-27 16:36:09.251 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+2021-07-27 16:36:09.253 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - No active profile set, falling back to default profiles: default
+2021-07-27 16:36:09.987 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:36:09.988 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-07-27 16:36:09.999 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
+2021-07-27 16:36:10.004 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:36:10.005 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-07-27 16:36:10.012 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2021-07-27 16:36:10.020 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:36:10.021 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-07-27 16:36:10.029 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2021-07-27 16:36:10.673 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 16:36:10.724 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 16:36:10.764 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-07-27 16:36:10.810 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-07-27 16:36:10.888 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-07-27 16:36:11.027 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2021-07-27 16:36:11.149 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-07-27 16:36:11.156 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-07-27 16:36:11.623 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2021-07-27 16:36:11.624 [main] INFO  org.quartz.simpl.SimpleThreadPool - Job execution threads will use class loader of thread: main
+2021-07-27 16:36:11.629 [main] INFO  org.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-07-27 16:36:11.630 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2021-07-27 16:36:11.632 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Using db table-based data access locking (synchronization).
+2021-07-27 16:36:11.633 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - JobStoreCMT initialized.
+2021-07-27 16:36:11.634 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is not clustered.
+
+2021-07-27 16:36:11.634 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'scheduler' initialized from an externally provided properties instance.
+2021-07-27 16:36:11.634 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2021-07-27 16:36:11.634 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@12ea5649
+2021-07-27 16:36:12.214 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-07-27 16:36:12.718 [main] INFO  o.s.scheduling.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2021-07-27 16:36:12.720 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Freed 0 triggers from 'acquired' / 'blocked' state.
+2021-07-27 16:36:12.721 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Recovering 0 jobs that were in-progress at the time of the last shut-down.
+2021-07-27 16:36:12.721 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Recovery complete.
+2021-07-27 16:36:12.722 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Removed 0 'complete' triggers.
+2021-07-27 16:36:12.722 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Removed 0 stale fired job entries.
+2021-07-27 16:36:12.723 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED started.
+2021-07-27 16:36:12.733 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - Started BarkServiceTest in 3.792 seconds (JVM running for 4.448)
+2021-07-27 16:36:13.131 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test h2
+2021-07-27 16:36:13.403 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 200 https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test (271ms, 55-byte body)
+2021-07-27 16:36:13.417 [main] INFO  c.jojo.zhuhaibusclock.service.impl.BarkServiceImpl - {"code":200,"message":"success","timestamp":1627374972}
+2021-07-27 16:36:13.423 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused.
+2021-07-27 16:36:13.426 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-07-27 16:36:13.430 [SpringContextShutdownHook] INFO  o.s.scheduling.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2021-07-27 16:36:13.431 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutting down.
+2021-07-27 16:36:13.431 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused.
+2021-07-27 16:36:13.633 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutdown complete.
+2021-07-27 16:36:13.633 [SpringContextShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-07-27 16:36:13.635 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-27 16:36:13.638 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2021-07-27 16:37:04.545 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - Starting BarkServiceTest using Java 15.0.2 on DESKTOP-FT3ALHB with PID 50820 (started by JoJoWu in D:\IdeaProjects\zhuHaiBusClock)
+2021-07-27 16:37:04.547 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - No active profile set, falling back to default profiles: default
+2021-07-27 16:37:04.547 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+2021-07-27 16:37:16.498 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+2021-07-27 16:37:16.499 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - Starting BarkServiceTest using Java 15.0.2 on DESKTOP-FT3ALHB with PID 51428 (started by JoJoWu in D:\IdeaProjects\zhuHaiBusClock)
+2021-07-27 16:37:16.501 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - No active profile set, falling back to default profiles: default
+2021-07-27 16:37:17.195 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:37:17.196 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-07-27 16:37:17.207 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
+2021-07-27 16:37:17.212 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:37:17.213 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-07-27 16:37:17.219 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2021-07-27 16:37:17.226 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:37:17.227 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-07-27 16:37:17.235 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2021-07-27 16:37:17.842 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 16:37:17.888 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 16:37:17.924 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-07-27 16:37:17.958 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-07-27 16:37:18.028 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-07-27 16:37:18.158 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2021-07-27 16:37:18.282 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-07-27 16:37:18.288 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-07-27 16:37:18.745 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2021-07-27 16:37:18.746 [main] INFO  org.quartz.simpl.SimpleThreadPool - Job execution threads will use class loader of thread: main
+2021-07-27 16:37:18.752 [main] INFO  org.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-07-27 16:37:18.752 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2021-07-27 16:37:18.754 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Using db table-based data access locking (synchronization).
+2021-07-27 16:37:18.755 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - JobStoreCMT initialized.
+2021-07-27 16:37:18.755 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is not clustered.
+
+2021-07-27 16:37:18.755 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'scheduler' initialized from an externally provided properties instance.
+2021-07-27 16:37:18.755 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2021-07-27 16:37:18.755 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@c24aa4e6
+2021-07-27 16:37:19.312 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-07-27 16:37:19.819 [main] INFO  o.s.scheduling.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2021-07-27 16:37:19.821 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Freed 0 triggers from 'acquired' / 'blocked' state.
+2021-07-27 16:37:19.822 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Recovering 0 jobs that were in-progress at the time of the last shut-down.
+2021-07-27 16:37:19.823 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Recovery complete.
+2021-07-27 16:37:19.823 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Removed 0 'complete' triggers.
+2021-07-27 16:37:19.823 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Removed 0 stale fired job entries.
+2021-07-27 16:37:19.824 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED started.
+2021-07-27 16:37:19.835 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - Started BarkServiceTest in 3.632 seconds (JVM running for 4.265)
+2021-07-27 16:37:20.289 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test0 h2
+2021-07-27 16:37:20.564 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 200 https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test0 (274ms, 55-byte body)
+2021-07-27 16:37:20.577 [main] INFO  c.jojo.zhuhaibusclock.service.impl.BarkServiceImpl - {"code":200,"message":"success","timestamp":1627375039}
+2021-07-27 16:37:20.577 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test1 h2
+2021-07-27 16:37:20.853 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 200 https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test1 (275ms, 55-byte body)
+2021-07-27 16:37:20.853 [main] INFO  c.jojo.zhuhaibusclock.service.impl.BarkServiceImpl - {"code":200,"message":"success","timestamp":1627375039}
+2021-07-27 16:37:20.854 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test2 h2
+2021-07-27 16:37:21.127 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 200 https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test2 (273ms, 55-byte body)
+2021-07-27 16:37:21.127 [main] INFO  c.jojo.zhuhaibusclock.service.impl.BarkServiceImpl - {"code":200,"message":"success","timestamp":1627375040}
+2021-07-27 16:37:21.128 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test3 h2
+2021-07-27 16:37:21.418 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 200 https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test3 (290ms, 55-byte body)
+2021-07-27 16:37:21.418 [main] INFO  c.jojo.zhuhaibusclock.service.impl.BarkServiceImpl - {"code":200,"message":"success","timestamp":1627375040}
+2021-07-27 16:37:21.419 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test4 h2
+2021-07-27 16:37:21.697 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 200 https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test4 (277ms, 55-byte body)
+2021-07-27 16:37:21.697 [main] INFO  c.jojo.zhuhaibusclock.service.impl.BarkServiceImpl - {"code":200,"message":"success","timestamp":1627375040}
+2021-07-27 16:37:21.698 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test5 h2
+2021-07-27 16:37:21.977 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 200 https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test5 (280ms, 55-byte body)
+2021-07-27 16:37:21.978 [main] INFO  c.jojo.zhuhaibusclock.service.impl.BarkServiceImpl - {"code":200,"message":"success","timestamp":1627375040}
+2021-07-27 16:37:21.978 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test6 h2
+2021-07-27 16:37:22.256 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 200 https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test6 (277ms, 55-byte body)
+2021-07-27 16:37:22.257 [main] INFO  c.jojo.zhuhaibusclock.service.impl.BarkServiceImpl - {"code":200,"message":"success","timestamp":1627375041}
+2021-07-27 16:37:22.257 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test7 h2
+2021-07-27 16:37:22.527 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 200 https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test7 (270ms, 55-byte body)
+2021-07-27 16:37:22.527 [main] INFO  c.jojo.zhuhaibusclock.service.impl.BarkServiceImpl - {"code":200,"message":"success","timestamp":1627375041}
+2021-07-27 16:37:22.528 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test8 h2
+2021-07-27 16:37:22.800 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 200 https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test8 (271ms, 55-byte body)
+2021-07-27 16:37:22.800 [main] INFO  c.jojo.zhuhaibusclock.service.impl.BarkServiceImpl - {"code":200,"message":"success","timestamp":1627375041}
+2021-07-27 16:37:22.801 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test9 h2
+2021-07-27 16:37:23.073 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 200 https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test9 (272ms, 55-byte body)
+2021-07-27 16:37:23.073 [main] INFO  c.jojo.zhuhaibusclock.service.impl.BarkServiceImpl - {"code":200,"message":"success","timestamp":1627375042}
+2021-07-27 16:37:23.079 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused.
+2021-07-27 16:37:23.081 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-07-27 16:37:23.086 [SpringContextShutdownHook] INFO  o.s.scheduling.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2021-07-27 16:37:23.086 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutting down.
+2021-07-27 16:37:23.086 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused.
+2021-07-27 16:37:23.267 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutdown complete.
+2021-07-27 16:37:23.267 [SpringContextShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-07-27 16:37:23.269 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-27 16:37:23.272 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2021-07-27 16:39:05.808 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - Starting BarkServiceTest using Java 15.0.2 on DESKTOP-FT3ALHB with PID 41944 (started by JoJoWu in D:\IdeaProjects\zhuHaiBusClock)
+2021-07-27 16:39:05.810 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - No active profile set, falling back to default profiles: default
+2021-07-27 16:39:05.810 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+2021-07-27 16:39:06.590 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:39:06.591 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-07-27 16:39:06.603 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
+2021-07-27 16:39:06.608 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:39:06.609 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-07-27 16:39:06.615 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2021-07-27 16:39:06.623 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-27 16:39:06.623 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-07-27 16:39:06.631 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2021-07-27 16:39:07.232 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 16:39:07.281 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 16:39:07.316 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-07-27 16:39:07.349 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-07-27 16:39:07.422 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-07-27 16:39:07.563 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2021-07-27 16:39:07.675 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-07-27 16:39:07.681 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-07-27 16:39:08.129 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2021-07-27 16:39:08.130 [main] INFO  org.quartz.simpl.SimpleThreadPool - Job execution threads will use class loader of thread: main
+2021-07-27 16:39:08.134 [main] INFO  org.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-07-27 16:39:08.135 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2021-07-27 16:39:08.137 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Using db table-based data access locking (synchronization).
+2021-07-27 16:39:08.139 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - JobStoreCMT initialized.
+2021-07-27 16:39:08.139 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is not clustered.
+
+2021-07-27 16:39:08.139 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'scheduler' initialized from an externally provided properties instance.
+2021-07-27 16:39:08.139 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2021-07-27 16:39:08.140 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@947f4997
+2021-07-27 16:39:08.695 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-07-27 16:39:09.183 [main] INFO  o.s.scheduling.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2021-07-27 16:39:09.185 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Freed 0 triggers from 'acquired' / 'blocked' state.
+2021-07-27 16:39:09.186 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Recovering 0 jobs that were in-progress at the time of the last shut-down.
+2021-07-27 16:39:09.186 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Recovery complete.
+2021-07-27 16:39:09.186 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Removed 0 'complete' triggers.
+2021-07-27 16:39:09.187 [main] INFO  o.s.scheduling.quartz.LocalDataSourceJobStore - Removed 0 stale fired job entries.
+2021-07-27 16:39:09.188 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED started.
+2021-07-27 16:39:09.199 [main] INFO  com.jojo.zhuhaibusclock.service.MessageServiceTest - Started BarkServiceTest in 3.694 seconds (JVM running for 4.328)
+2021-07-27 16:39:09.578 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - --> GET https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test h2
+2021-07-27 16:39:09.837 [main] INFO  c.g.l.r.s.b.interceptor.DefaultLoggingInterceptor - <-- 200 https://api.day.app/KQZynXmVoq6z7hhG5RLU97/test (258ms, 55-byte body)
+2021-07-27 16:39:09.850 [main] INFO  c.jojo.zhuhaibusclock.service.impl.BarkServiceImpl - 消息推送成功：{"code":200,"message":"success","timestamp":1627375148}
+2021-07-27 16:39:09.856 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused.
+2021-07-27 16:39:09.857 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-07-27 16:39:09.863 [SpringContextShutdownHook] INFO  o.s.scheduling.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2021-07-27 16:39:09.863 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutting down.
+2021-07-27 16:39:09.863 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused.
+2021-07-27 16:39:10.134 [SpringContextShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutdown complete.
+2021-07-27 16:39:10.135 [SpringContextShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-07-27 16:39:10.137 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-27 16:39:10.141 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

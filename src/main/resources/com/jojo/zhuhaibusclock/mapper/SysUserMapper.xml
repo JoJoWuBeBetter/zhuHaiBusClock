@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jojo.zhuhaibusclock.mapper.SysUserMapper">
+    <resultMap id="BaseResultMap" type="com.jojo.zhuhaibusclock.model.SysUser">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="open_id" jdbcType="VARCHAR" property="openId"/>
+        <result column="session_key" jdbcType="VARCHAR" property="sessionKey"/>
+        <result column="bark_key" jdbcType="VARCHAR" property="barkKey"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        , open_id, session_key, bark_key
+    </sql>
+    <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_user
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectByOpenId" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_user
+        where open_id = #{openId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete
+        from sys_user
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.jojo.zhuhaibusclock.model.SysUser"
+            useGeneratedKeys="true">
+        insert into sys_user (open_id, session_key, bark_key)
+        values (#{openId,jdbcType=VARCHAR}, #{sessionKey,jdbcType=VARCHAR}, #{barkKey,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.jojo.zhuhaibusclock.model.SysUser"
+            useGeneratedKeys="true">
+        insert into sys_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="openId != null">
+                open_id,
+            </if>
+            <if test="sessionKey != null">
+                session_key,
+            </if>
+            <if test="barkKey != null">
+                bark_key,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="openId != null">
+                #{openId,jdbcType=VARCHAR},
+            </if>
+            <if test="sessionKey != null">
+                #{sessionKey,jdbcType=VARCHAR},
+            </if>
+            <if test="barkKey != null">
+                #{barkKey,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByIdSelective" parameterType="com.jojo.zhuhaibusclock.model.SysUser">
+        update sys_user
+        <set>
+            <if test="openId != null">
+                open_id = #{openId,jdbcType=VARCHAR},
+            </if>
+            <if test="sessionKey != null">
+                session_key = #{sessionKey,jdbcType=VARCHAR},
+            </if>
+            <if test="barkKey != null">
+                #{barkKey,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateById" parameterType="com.jojo.zhuhaibusclock.model.SysUser">
+        update sys_user
+        set open_id     = #{openId,jdbcType=VARCHAR},
+            session_key = #{sessionKey,jdbcType=VARCHAR},
+            bark_key    =#{barkKey,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByOpenId">
+        update sys_user
+        set session_key = #{sessionKey,jdbcType=VARCHAR},
+            bark_key    =#{barkKey,jdbcType=VARCHAR}
+        where open_id = #{openId,jdbcType=VARCHAR}
+    </update>
+</mapper>

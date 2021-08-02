@@ -1,0 +1,68 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://192.168.31.83:3306/zhuHai_bus
+    username: root
+    password: root
+  redis:
+    host: 192.168.31.83
+  cache:
+    redis:
+      time-to-live: 1d
+  quartz:
+    job-store-type: jdbc
+    wait-for-jobs-to-complete-on-shutdown: true
+    overwrite-existing-jobs: true
+    properties:
+      org:
+        quartz:
+          # scheduler相关
+          scheduler:
+            # scheduler的实例名
+            instanceName: scheduler
+            instanceId: AUTO
+          # 持久化相关
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            # 表示数据库中相关表是QRTZ_开头的
+            tablePrefix: QRTZ_
+            useProperties: false
+          # 线程池相关
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            # 线程数
+            threadCount: 10
+            # 线程优先级
+            threadPriority: 5
+            threadsInheritContextClassLoaderOfInitializingThread: true
+
+#  security:
+#    user:
+#      name: admin
+#      password: admin
+
+retrofit:
+  global-converter-factories: retrofit2.converter.gson.GsonConverterFactory
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.zhuhaibusclock.model
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com.jojo.zhuhaibusclock.mapper: trace
+  config: classpath:logback-spring.xml
+  file:
+    path: myLogs
+
+zhuhai-bus-clock:
+  wx-app-id: wxc3fb2322c6d84df8
+  wx-app-secret: 87d9cc73a1a290c0e1ba19b699f358f8
+  test-bark-key: KQZynXmVoq6z7hhG5RLU97
+
+

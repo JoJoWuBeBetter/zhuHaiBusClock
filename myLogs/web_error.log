@@ -1,0 +1,247 @@
+2021-08-02 13:30:38.278 [scheduler_Worker-1] ERROR org.quartz.core.JobRunShell - Job clock.clock threw an unhandled Exception: 
+com.jojo.zhuhaibusclock.exception.NotFoundException: 没有找到对应的闹钟
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl.getClock(ClockServiceImpl.java:82)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$FastClassBySpringCGLIB$$36d7f3c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$EnhancerBySpringCGLIB$$f4640cf9.getClock(<generated>)
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:26)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2021-08-02 13:30:38.280 [scheduler_Worker-1] ERROR org.quartz.core.ErrorLogger - Job (clock.clock threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception.
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: com.jojo.zhuhaibusclock.exception.NotFoundException: 没有找到对应的闹钟
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl.getClock(ClockServiceImpl.java:82)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$FastClassBySpringCGLIB$$36d7f3c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$EnhancerBySpringCGLIB$$f4640cf9.getClock(<generated>)
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:26)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 common frames omitted
+2021-08-02 13:30:39.005 [scheduler_Worker-2] ERROR org.quartz.core.JobRunShell - Job clock.clock threw an unhandled Exception: 
+com.jojo.zhuhaibusclock.exception.NotFoundException: 没有找到对应的闹钟
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl.getClock(ClockServiceImpl.java:82)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$FastClassBySpringCGLIB$$36d7f3c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$EnhancerBySpringCGLIB$$f4640cf9.getClock(<generated>)
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:26)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2021-08-02 13:30:39.006 [scheduler_Worker-2] ERROR org.quartz.core.ErrorLogger - Job (clock.clock threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception.
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: com.jojo.zhuhaibusclock.exception.NotFoundException: 没有找到对应的闹钟
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl.getClock(ClockServiceImpl.java:82)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$FastClassBySpringCGLIB$$36d7f3c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$EnhancerBySpringCGLIB$$f4640cf9.getClock(<generated>)
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:26)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 common frames omitted
+2021-08-02 13:30:40.006 [scheduler_Worker-3] ERROR org.quartz.core.JobRunShell - Job clock.clock threw an unhandled Exception: 
+com.jojo.zhuhaibusclock.exception.NotFoundException: 没有找到对应的闹钟
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl.getClock(ClockServiceImpl.java:82)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$FastClassBySpringCGLIB$$36d7f3c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$EnhancerBySpringCGLIB$$f4640cf9.getClock(<generated>)
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:26)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2021-08-02 13:30:40.006 [scheduler_Worker-3] ERROR org.quartz.core.ErrorLogger - Job (clock.clock threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception.
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: com.jojo.zhuhaibusclock.exception.NotFoundException: 没有找到对应的闹钟
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl.getClock(ClockServiceImpl.java:82)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$FastClassBySpringCGLIB$$36d7f3c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$EnhancerBySpringCGLIB$$f4640cf9.getClock(<generated>)
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:26)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 common frames omitted
+2021-08-02 13:30:41.008 [scheduler_Worker-4] ERROR org.quartz.core.JobRunShell - Job clock.clock threw an unhandled Exception: 
+com.jojo.zhuhaibusclock.exception.NotFoundException: 没有找到对应的闹钟
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl.getClock(ClockServiceImpl.java:82)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$FastClassBySpringCGLIB$$36d7f3c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$EnhancerBySpringCGLIB$$f4640cf9.getClock(<generated>)
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:26)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2021-08-02 13:30:41.009 [scheduler_Worker-4] ERROR org.quartz.core.ErrorLogger - Job (clock.clock threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception.
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: com.jojo.zhuhaibusclock.exception.NotFoundException: 没有找到对应的闹钟
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl.getClock(ClockServiceImpl.java:82)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$FastClassBySpringCGLIB$$36d7f3c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$EnhancerBySpringCGLIB$$f4640cf9.getClock(<generated>)
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:26)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 common frames omitted
+2021-08-02 13:30:42.006 [scheduler_Worker-5] ERROR org.quartz.core.JobRunShell - Job clock.clock threw an unhandled Exception: 
+com.jojo.zhuhaibusclock.exception.NotFoundException: 没有找到对应的闹钟
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl.getClock(ClockServiceImpl.java:82)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$FastClassBySpringCGLIB$$36d7f3c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$EnhancerBySpringCGLIB$$f4640cf9.getClock(<generated>)
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:26)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2021-08-02 13:30:42.007 [scheduler_Worker-5] ERROR org.quartz.core.ErrorLogger - Job (clock.clock threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception.
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: com.jojo.zhuhaibusclock.exception.NotFoundException: 没有找到对应的闹钟
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl.getClock(ClockServiceImpl.java:82)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$FastClassBySpringCGLIB$$36d7f3c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$EnhancerBySpringCGLIB$$f4640cf9.getClock(<generated>)
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:26)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 common frames omitted
+2021-08-02 13:30:43.008 [scheduler_Worker-6] ERROR org.quartz.core.JobRunShell - Job clock.clock threw an unhandled Exception: 
+com.jojo.zhuhaibusclock.exception.NotFoundException: 没有找到对应的闹钟
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl.getClock(ClockServiceImpl.java:82)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$FastClassBySpringCGLIB$$36d7f3c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$EnhancerBySpringCGLIB$$f4640cf9.getClock(<generated>)
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:26)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2021-08-02 13:30:43.008 [scheduler_Worker-6] ERROR org.quartz.core.ErrorLogger - Job (clock.clock threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception.
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: com.jojo.zhuhaibusclock.exception.NotFoundException: 没有找到对应的闹钟
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl.getClock(ClockServiceImpl.java:82)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$FastClassBySpringCGLIB$$36d7f3c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.jojo.zhuhaibusclock.service.impl.ClockServiceImpl$$EnhancerBySpringCGLIB$$f4640cf9.getClock(<generated>)
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:26)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 common frames omitted
+2021-08-02 13:32:01.827 [scheduler_Worker-1] ERROR org.quartz.core.JobRunShell - Job clock.clock threw an unhandled Exception: 
+java.lang.NullPointerException: Cannot invoke "com.jojo.zhuhaibusclock.service.ClockService.getClock(java.lang.Long)" because "this.clockService" is null
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:25)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2021-08-02 13:32:01.828 [scheduler_Worker-1] ERROR org.quartz.core.ErrorLogger - Job (clock.clock threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception.
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: java.lang.NullPointerException: Cannot invoke "com.jojo.zhuhaibusclock.service.ClockService.getClock(java.lang.Long)" because "this.clockService" is null
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:25)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 common frames omitted
+2021-08-02 13:32:02.004 [scheduler_Worker-2] ERROR org.quartz.core.JobRunShell - Job clock.clock threw an unhandled Exception: 
+java.lang.NullPointerException: Cannot invoke "com.jojo.zhuhaibusclock.service.ClockService.getClock(java.lang.Long)" because "this.clockService" is null
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:25)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2021-08-02 13:32:02.004 [scheduler_Worker-2] ERROR org.quartz.core.ErrorLogger - Job (clock.clock threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception.
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: java.lang.NullPointerException: Cannot invoke "com.jojo.zhuhaibusclock.service.ClockService.getClock(java.lang.Long)" because "this.clockService" is null
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:25)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 common frames omitted
+2021-08-02 13:32:03.006 [scheduler_Worker-3] ERROR org.quartz.core.JobRunShell - Job clock.clock threw an unhandled Exception: 
+java.lang.NullPointerException: Cannot invoke "com.jojo.zhuhaibusclock.service.ClockService.getClock(java.lang.Long)" because "this.clockService" is null
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:25)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2021-08-02 13:32:03.006 [scheduler_Worker-3] ERROR org.quartz.core.ErrorLogger - Job (clock.clock threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception.
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: java.lang.NullPointerException: Cannot invoke "com.jojo.zhuhaibusclock.service.ClockService.getClock(java.lang.Long)" because "this.clockService" is null
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:25)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 common frames omitted
+2021-08-02 13:32:04.004 [scheduler_Worker-4] ERROR org.quartz.core.JobRunShell - Job clock.clock threw an unhandled Exception: 
+java.lang.NullPointerException: Cannot invoke "com.jojo.zhuhaibusclock.service.ClockService.getClock(java.lang.Long)" because "this.clockService" is null
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:25)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2021-08-02 13:32:04.004 [scheduler_Worker-4] ERROR org.quartz.core.ErrorLogger - Job (clock.clock threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception.
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: java.lang.NullPointerException: Cannot invoke "com.jojo.zhuhaibusclock.service.ClockService.getClock(java.lang.Long)" because "this.clockService" is null
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:25)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 common frames omitted
+2021-08-02 13:32:05.005 [scheduler_Worker-5] ERROR org.quartz.core.JobRunShell - Job clock.clock threw an unhandled Exception: 
+java.lang.NullPointerException: Cannot invoke "com.jojo.zhuhaibusclock.service.ClockService.getClock(java.lang.Long)" because "this.clockService" is null
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:25)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2021-08-02 13:32:05.005 [scheduler_Worker-5] ERROR org.quartz.core.ErrorLogger - Job (clock.clock threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception.
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: java.lang.NullPointerException: Cannot invoke "com.jojo.zhuhaibusclock.service.ClockService.getClock(java.lang.Long)" because "this.clockService" is null
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:25)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 common frames omitted
+2021-08-02 13:32:06.005 [scheduler_Worker-6] ERROR org.quartz.core.JobRunShell - Job clock.clock threw an unhandled Exception: 
+java.lang.NullPointerException: Cannot invoke "com.jojo.zhuhaibusclock.service.ClockService.getClock(java.lang.Long)" because "this.clockService" is null
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:25)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2021-08-02 13:32:06.005 [scheduler_Worker-6] ERROR org.quartz.core.ErrorLogger - Job (clock.clock threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception.
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: java.lang.NullPointerException: Cannot invoke "com.jojo.zhuhaibusclock.service.ClockService.getClock(java.lang.Long)" because "this.clockService" is null
+	at com.jojo.zhuhaibusclock.quartz.ClockJob.executeInternal(ClockJob.java:25)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 common frames omitted
+2021-08-02 14:01:13.143 [main] ERROR c.j.z.quartz.service.QuartzServiceImpl - 闹钟任务创建失败，{"id":9}
+2021-08-02 14:01:45.297 [main] ERROR c.j.z.quartz.service.QuartzServiceImpl - 闹钟任务创建失败，{"id":9}
+2021-08-02 14:03:30.002 [main] ERROR c.j.z.quartz.service.QuartzServiceImpl - 闹钟任务创建失败，{"id":9}
+2021-08-02 14:04:51.769 [main] ERROR c.j.z.quartz.service.QuartzServiceImpl - 闹钟任务创建失败，{"id":9}
+2021-08-02 14:05:11.131 [main] ERROR c.j.z.quartz.service.QuartzServiceImpl - 闹钟任务创建失败，{"id":9}
+2021-08-02 14:06:11.901 [main] ERROR c.j.z.quartz.service.QuartzServiceImpl - 闹钟任务创建失败，{"id":9}
+2021-08-02 14:37:25.869 [main] ERROR c.j.z.quartz.service.QuartzServiceImpl - 闹钟任务创建失败，{"id":9}

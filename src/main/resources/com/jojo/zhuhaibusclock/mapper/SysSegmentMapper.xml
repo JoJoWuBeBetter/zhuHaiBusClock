@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jojo.zhuhaibusclock.mapper.SysSegmentMapper">
+    <resultMap id="BaseResultMap" type="com.jojo.zhuhaibusclock.model.SysSegment">
+        <id column="segment_id" jdbcType="BIGINT" property="segmentId"/>
+        <id column="route_id" jdbcType="BIGINT" property="routeId"/>
+        <result column="first_time" jdbcType="TIME" property="firstTime"/>
+        <result column="last_time" jdbcType="TIME" property="lastTime"/>
+        <result column="route_price" jdbcType="INTEGER" property="routePrice"/>
+        <result column="run_direction" jdbcType="INTEGER" property="runDirection"/>
+        <result column="route_name" jdbcType="VARCHAR" property="routeName"/>
+        <result column="station_id" jdbcType="VARCHAR" property="stationId"/>
+        <result column="route_type" jdbcType="INTEGER" property="routeType"/>
+        <result column="start_at" jdbcType="VARCHAR" property="startAt"/>
+        <result column="end_at" jdbcType="VARCHAR" property="endAt"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        segment_id
+        , route_id, first_time, last_time, route_price, run_direction, route_name,
+    station_id, route_type, start_at, end_at
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="com.jojo.zhuhaibusclock.model.SysSegmentKey"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_segment
+        where segment_id = #{segmentId,jdbcType=BIGINT}
+        and route_id = #{routeId,jdbcType=BIGINT}
+    </select>
+    <select id="selectBySegmentIdAndRouteId" resultType="com.jojo.zhuhaibusclock.model.SysSegment">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_segment
+        where segment_id = #{segmentId,jdbcType=BIGINT}
+        and route_id = #{routeId,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="com.jojo.zhuhaibusclock.model.SysSegmentKey">
+        delete
+        from sys_segment
+        where segment_id = #{segmentId,jdbcType=BIGINT}
+          and route_id = #{routeId,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="segment_id" keyProperty="segmentId"
+            parameterType="com.jojo.zhuhaibusclock.model.SysSegment" useGeneratedKeys="true">
+        insert into sys_segment (segment_id, route_id, first_time, last_time,
+                                 route_price, run_direction, route_name,
+                                 station_id, route_type, start_at,
+                                 end_at)
+        values (#{segmentId,jdbcType=BIGINT},#{routeId,jdbcType=BIGINT}, #{firstTime,jdbcType=TIME}, #{lastTime,jdbcType=TIME},
+                #{routePrice,jdbcType=INTEGER}, #{runDirection,jdbcType=INTEGER}, #{routeName,jdbcType=VARCHAR},
+                #{stationId,jdbcType=VARCHAR}, #{routeType,jdbcType=INTEGER}, #{startAt,jdbcType=VARCHAR},
+                #{endAt,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="segment_id" keyProperty="segmentId"
+            parameterType="com.jojo.zhuhaibusclock.model.SysSegment" useGeneratedKeys="true">
+        insert into sys_segment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="routeId != null">
+                route_id,
+            </if>
+            <if test="firstTime != null">
+                first_time,
+            </if>
+            <if test="lastTime != null">
+                last_time,
+            </if>
+            <if test="routePrice != null">
+                route_price,
+            </if>
+            <if test="runDirection != null">
+                run_direction,
+            </if>
+            <if test="routeName != null">
+                route_name,
+            </if>
+            <if test="stationId != null">
+                station_id,
+            </if>
+            <if test="routeType != null">
+                route_type,
+            </if>
+            <if test="startAt != null">
+                start_at,
+            </if>
+            <if test="endAt != null">
+                end_at,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="routeId != null">
+                #{routeId,jdbcType=BIGINT},
+            </if>
+            <if test="firstTime != null">
+                #{firstTime,jdbcType=TIME},
+            </if>
+            <if test="lastTime != null">
+                #{lastTime,jdbcType=TIME},
+            </if>
+            <if test="routePrice != null">
+                #{routePrice,jdbcType=INTEGER},
+            </if>
+            <if test="runDirection != null">
+                #{runDirection,jdbcType=INTEGER},
+            </if>
+            <if test="routeName != null">
+                #{routeName,jdbcType=VARCHAR},
+            </if>
+            <if test="stationId != null">
+                #{stationId,jdbcType=VARCHAR},
+            </if>
+            <if test="routeType != null">
+                #{routeType,jdbcType=INTEGER},
+            </if>
+            <if test="startAt != null">
+                #{startAt,jdbcType=VARCHAR},
+            </if>
+            <if test="endAt != null">
+                #{endAt,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jojo.zhuhaibusclock.model.SysSegment">
+        update sys_segment
+        <set>
+            <if test="firstTime != null">
+                first_time = #{firstTime,jdbcType=TIME},
+            </if>
+            <if test="lastTime != null">
+                last_time = #{lastTime,jdbcType=TIME},
+            </if>
+            <if test="routePrice != null">
+                route_price = #{routePrice,jdbcType=INTEGER},
+            </if>
+            <if test="runDirection != null">
+                run_direction = #{runDirection,jdbcType=INTEGER},
+            </if>
+            <if test="routeName != null">
+                route_name = #{routeName,jdbcType=VARCHAR},
+            </if>
+            <if test="stationId != null">
+                station_id = #{stationId,jdbcType=VARCHAR},
+            </if>
+            <if test="routeType != null">
+                route_type = #{routeType,jdbcType=INTEGER},
+            </if>
+            <if test="startAt != null">
+                start_at = #{startAt,jdbcType=VARCHAR},
+            </if>
+            <if test="endAt != null">
+                end_at = #{endAt,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where segment_id = #{segmentId,jdbcType=BIGINT}
+        and route_id = #{routeId,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jojo.zhuhaibusclock.model.SysSegment">
+        update sys_segment
+        set first_time    = #{firstTime,jdbcType=TIME},
+            last_time     = #{lastTime,jdbcType=TIME},
+            route_price   = #{routePrice,jdbcType=INTEGER},
+            run_direction = #{runDirection,jdbcType=INTEGER},
+            route_name    = #{routeName,jdbcType=VARCHAR},
+            station_id    = #{stationId,jdbcType=VARCHAR},
+            route_type    = #{routeType,jdbcType=INTEGER},
+            start_at      = #{startAt,jdbcType=VARCHAR},
+            end_at        = #{endAt,jdbcType=VARCHAR}
+        where segment_id = #{segmentId,jdbcType=BIGINT}
+          and route_id = #{routeId,jdbcType=BIGINT}
+    </update>
+</mapper>

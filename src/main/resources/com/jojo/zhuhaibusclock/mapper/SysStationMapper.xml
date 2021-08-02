@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jojo.zhuhaibusclock.mapper.SysStationMapper">
+    <resultMap id="BaseResultMap" type="com.jojo.zhuhaibusclock.model.SysStation">
+        <id column="station_id" jdbcType="VARCHAR" property="stationId"/>
+        <result column="station_name" jdbcType="VARCHAR" property="stationName"/>
+        <result column="longitude" jdbcType="VARCHAR" property="longitude"/>
+        <result column="latitude" jdbcType="VARCHAR" property="latitude"/>
+        <result column="station_sort" jdbcType="INTEGER" property="stationSort"/>
+        <result column="created_at" jdbcType="TIMESTAMP" property="createdAt"/>
+        <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        station_id
+        , station_name, longitude, latitude, station_sort, created_at, updated_at
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_station
+        where station_id = #{stationId, jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from sys_station
+        where station_id = #{stationId, jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" keyColumn="station_id" keyProperty="stationId"
+            parameterType="com.jojo.zhuhaibusclock.model.SysStation" useGeneratedKeys="true">
+        insert into sys_station (station_id, station_name, longitude, latitude,
+                                 station_sort, created_at, updated_at)
+        values (#{stationId, jdbcType=VARCHAR}, #{stationName,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR},
+                #{latitude,jdbcType=VARCHAR},
+                #{stationSort,jdbcType=INTEGER}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jojo.zhuhaibusclock.model.SysStation">
+        update sys_station
+        <set>
+            <if test="stationName != null">
+                station_name = #{stationName,jdbcType=VARCHAR},
+            </if>
+            <if test="longitude != null">
+                longitude = #{longitude,jdbcType=VARCHAR},
+            </if>
+            <if test="latitude != null">
+                latitude = #{latitude,jdbcType=VARCHAR},
+            </if>
+            <if test="stationSort != null">
+                station_sort = #{stationSort,jdbcType=INTEGER},
+            </if>
+            <if test="createdAt != null">
+                created_at = #{createdAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedAt != null">
+                updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where station_id = #{stationId, jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jojo.zhuhaibusclock.model.SysStation">
+        update sys_station
+        set station_name = #{stationName,jdbcType=VARCHAR},
+            longitude    = #{longitude,jdbcType=VARCHAR},
+            latitude     = #{latitude,jdbcType=VARCHAR},
+            station_sort = #{stationSort,jdbcType=INTEGER},
+            created_at   = #{createdAt,jdbcType=TIMESTAMP},
+            updated_at   = #{updatedAt,jdbcType=TIMESTAMP}
+        where station_id = #{stationId, jdbcType=VARCHAR}
+    </update>
+</mapper>
