@@ -1,4 +1,0 @@
-2021-07-28 16:20:21.080 [main] DEBUG com.jojo.zhuhaibusclock.mapper.SysUserMapperTest - Running with Spring Boot v2.4.5, Spring v5.3.6
-2021-07-28 16:20:24.929 [main] DEBUG c.j.zhuhaibusclock.mapper.SysUserMapper.selectById - ==>  Preparing: select id , open_id, session_key, bark_key from sys_user where id = ?
-2021-07-28 16:20:24.938 [main] DEBUG c.j.zhuhaibusclock.mapper.SysUserMapper.selectById - ==> Parameters: 2(Long)
-2021-07-28 16:20:24.948 [main] DEBUG c.j.zhuhaibusclock.mapper.SysUserMapper.selectById - <==      Total: 1
