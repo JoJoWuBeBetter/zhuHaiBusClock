@@ -8,8 +8,7 @@
         <result column="bark_key" jdbcType="VARCHAR" property="barkKey"/>
     </resultMap>
     <sql id="Base_Column_List">
-        id
-        , open_id, session_key, bark_key
+        id, open_id, session_key, bark_key
     </sql>
     <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select

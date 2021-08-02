@@ -11,8 +11,7 @@
         <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt"/>
     </resultMap>
     <sql id="Base_Column_List">
-        station_id
-        , station_name, longitude, latitude, station_sort, created_at, updated_at
+        station_id, station_name, longitude, latitude, station_sort, created_at, updated_at
     </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select

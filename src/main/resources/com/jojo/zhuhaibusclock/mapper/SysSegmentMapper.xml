@@ -15,9 +15,8 @@
         <result column="end_at" jdbcType="VARCHAR" property="endAt"/>
     </resultMap>
     <sql id="Base_Column_List">
-        segment_id
-        , route_id, first_time, last_time, route_price, run_direction, route_name,
-    station_id, route_type, start_at, end_at
+        segment_id , route_id, first_time, last_time, route_price, run_direction, route_name,
+        station_id, route_type, start_at, end_at
     </sql>
     <select id="selectByPrimaryKey" parameterType="com.jojo.zhuhaibusclock.model.SysSegmentKey"
             resultMap="BaseResultMap">
@@ -46,7 +45,8 @@
                                  route_price, run_direction, route_name,
                                  station_id, route_type, start_at,
                                  end_at)
-        values (#{segmentId,jdbcType=VARCHAR},#{routeId,jdbcType=VARCHAR}, #{firstTime,jdbcType=TIME}, #{lastTime,jdbcType=TIME},
+        values (#{segmentId,jdbcType=VARCHAR}, #{routeId,jdbcType=VARCHAR}, #{firstTime,jdbcType=TIME},
+                #{lastTime,jdbcType=TIME},
                 #{routePrice,jdbcType=INTEGER}, #{runDirection,jdbcType=INTEGER}, #{routeName,jdbcType=VARCHAR},
                 #{stationId,jdbcType=VARCHAR}, #{routeType,jdbcType=INTEGER}, #{startAt,jdbcType=VARCHAR},
                 #{endAt,jdbcType=VARCHAR})

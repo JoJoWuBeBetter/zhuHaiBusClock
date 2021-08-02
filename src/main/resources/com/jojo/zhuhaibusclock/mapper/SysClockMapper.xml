@@ -11,8 +11,7 @@
         <result column="station_id" jdbcType="VARCHAR" property="stationId"/>
     </resultMap>
     <sql id="Base_Column_List">
-        id
-        , alarm_time, repeat_time, is_enable, route_id, segment_id, station_id
+        id, alarm_time, repeat_time, is_enable, route_id, segment_id, station_id
     </sql>
     <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
