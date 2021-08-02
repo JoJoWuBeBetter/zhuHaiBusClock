@@ -18,7 +18,7 @@ public interface SysClockMapper {
 
     SysClock selectById(Long id);
 
-    SysClock selectUserAndClockById(Long id);
+    SysClock selectClockAndUserById(Long id);
 
     List<SysClock> selectClockByUserId(Long userId);
 

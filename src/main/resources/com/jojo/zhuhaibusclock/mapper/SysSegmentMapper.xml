@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jojo.zhuhaibusclock.mapper.SysSegmentMapper">
     <resultMap id="BaseResultMap" type="com.jojo.zhuhaibusclock.model.SysSegment">
-        <id column="segment_id" jdbcType="BIGINT" property="segmentId"/>
-        <id column="route_id" jdbcType="BIGINT" property="routeId"/>
+        <id column="segment_id" jdbcType="VARCHAR" property="segmentId"/>
+        <id column="route_id" jdbcType="VARCHAR" property="routeId"/>
         <result column="first_time" jdbcType="TIME" property="firstTime"/>
         <result column="last_time" jdbcType="TIME" property="lastTime"/>
         <result column="route_price" jdbcType="INTEGER" property="routePrice"/>
@@ -24,21 +24,21 @@
         select
         <include refid="Base_Column_List"/>
         from sys_segment
-        where segment_id = #{segmentId,jdbcType=BIGINT}
-        and route_id = #{routeId,jdbcType=BIGINT}
+        where segment_id = #{segmentId,jdbcType=VARCHAR}
+        and route_id = #{routeId,jdbcType=VARCHAR}
     </select>
     <select id="selectBySegmentIdAndRouteId" resultType="com.jojo.zhuhaibusclock.model.SysSegment">
         select
         <include refid="Base_Column_List"/>
         from sys_segment
-        where segment_id = #{segmentId,jdbcType=BIGINT}
-        and route_id = #{routeId,jdbcType=BIGINT}
+        where segment_id = #{segmentId,jdbcType=VARCHAR}
+        and route_id = #{routeId,jdbcType=VARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="com.jojo.zhuhaibusclock.model.SysSegmentKey">
         delete
         from sys_segment
-        where segment_id = #{segmentId,jdbcType=BIGINT}
-          and route_id = #{routeId,jdbcType=BIGINT}
+        where segment_id = #{segmentId,jdbcType=VARCHAR}
+          and route_id = #{routeId,jdbcType=VARCHAR}
     </delete>
     <insert id="insert" keyColumn="segment_id" keyProperty="segmentId"
             parameterType="com.jojo.zhuhaibusclock.model.SysSegment" useGeneratedKeys="true">
@@ -46,7 +46,7 @@
                                  route_price, run_direction, route_name,
                                  station_id, route_type, start_at,
                                  end_at)
-        values (#{segmentId,jdbcType=BIGINT},#{routeId,jdbcType=BIGINT}, #{firstTime,jdbcType=TIME}, #{lastTime,jdbcType=TIME},
+        values (#{segmentId,jdbcType=VARCHAR},#{routeId,jdbcType=VARCHAR}, #{firstTime,jdbcType=TIME}, #{lastTime,jdbcType=TIME},
                 #{routePrice,jdbcType=INTEGER}, #{runDirection,jdbcType=INTEGER}, #{routeName,jdbcType=VARCHAR},
                 #{stationId,jdbcType=VARCHAR}, #{routeType,jdbcType=INTEGER}, #{startAt,jdbcType=VARCHAR},
                 #{endAt,jdbcType=VARCHAR})
@@ -88,7 +88,7 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="routeId != null">
-                #{routeId,jdbcType=BIGINT},
+                #{routeId,jdbcType=VARCHAR},
             </if>
             <if test="firstTime != null">
                 #{firstTime,jdbcType=TIME},
@@ -150,8 +150,8 @@
                 end_at = #{endAt,jdbcType=VARCHAR},
             </if>
         </set>
-        where segment_id = #{segmentId,jdbcType=BIGINT}
-        and route_id = #{routeId,jdbcType=BIGINT}
+        where segment_id = #{segmentId,jdbcType=VARCHAR}
+        and route_id = #{routeId,jdbcType=VARCHAR}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.jojo.zhuhaibusclock.model.SysSegment">
         update sys_segment
@@ -164,7 +164,7 @@
             route_type    = #{routeType,jdbcType=INTEGER},
             start_at      = #{startAt,jdbcType=VARCHAR},
             end_at        = #{endAt,jdbcType=VARCHAR}
-        where segment_id = #{segmentId,jdbcType=BIGINT}
-          and route_id = #{routeId,jdbcType=BIGINT}
+        where segment_id = #{segmentId,jdbcType=VARCHAR}
+          and route_id = #{routeId,jdbcType=VARCHAR}
     </update>
 </mapper>

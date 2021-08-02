@@ -11,13 +11,13 @@ import lombok.NoArgsConstructor;
 @Data
 public class Route {
     @JSONField(name = "RouteID")
-    private Integer routeId;
+    private String routeId;
     @JSONField(name = "Ismainsub")
     private Integer ismainsub;
     @JSONField(name = "isonroad")
     private Integer isonroad;
     @JSONField(name = "SegmentID")
-    private Integer segmentId;
+    private String segmentId;
     @JSONField(name = "RouteName")
     private String routeName;
     @JSONField(name = "RouteType")

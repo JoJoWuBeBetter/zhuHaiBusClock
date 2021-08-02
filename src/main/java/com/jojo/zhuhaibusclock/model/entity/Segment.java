@@ -20,7 +20,7 @@ import java.time.LocalTime;
 @Data
 public class Segment {
     @JSONField(name = "SegmentID")
-    private Long segmentId;
+    private String segmentId;
     @JSONField(name = "FirstTime", format = "yyyy-MM-dd HH:mm:ss")
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
@@ -34,7 +34,7 @@ public class Segment {
     @JSONField(name = "RunDirection")
     private Integer runDirection;
     @JSONField(name = "RouteID")
-    private Long routeId;
+    private String routeId;
     @JSONField(name = "RouteName")
     private String routeName;
     @JSONField(name = "StationID")

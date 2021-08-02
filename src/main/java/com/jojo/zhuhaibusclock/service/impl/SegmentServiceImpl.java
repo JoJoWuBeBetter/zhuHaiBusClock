@@ -44,11 +44,11 @@ public class SegmentServiceImpl implements SegmentService {
 
     @Override
     @Cacheable(cacheNames = "segment", key = "#segmentId + '&' + #routeId")
-    public SysSegment findSegment(Long segmentId, Long routeId) {
+    public SysSegment findSegment(String segmentId, String routeId) {
         AtomicReference<SysSegment> segment = new AtomicReference<>(segmentMapper.selectBySegmentIdAndRouteId(segmentId, routeId));
 
         if (segment.get() == null) {
-            RouteRunningDetailResult result = zhuHaiBusService.getRouteRunningDetail(routeId.toString(), segmentId.toString());
+            RouteRunningDetailResult result = zhuHaiBusService.getRouteRunningDetail(routeId, segmentId);
             Station station = result.getStations().get(0);
             if (station == null) {
                 throw new NotFoundException("获取segment错误");
@@ -80,7 +80,7 @@ public class SegmentServiceImpl implements SegmentService {
 
     @Override
     @CacheEvict(cacheNames = "segment", key = "#segmentId + '&' + #routeId")
-    public void deleteSegment(Long segmentId, Long routeId) {
+    public void deleteSegment(String segmentId, String routeId) {
         SysSegmentKey segmentKey = new SysSegment();
         segmentKey.setSegmentId(segmentId);
         segmentKey.setRouteId(routeId);

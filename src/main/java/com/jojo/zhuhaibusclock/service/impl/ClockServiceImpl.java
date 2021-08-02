@@ -12,6 +12,7 @@ import com.jojo.zhuhaibusclock.model.SysUserClock;
 import com.jojo.zhuhaibusclock.model.params.ClockParam;
 import com.jojo.zhuhaibusclock.model.vo.ClockVO;
 import com.jojo.zhuhaibusclock.service.ClockService;
+import com.jojo.zhuhaibusclock.service.MessageService;
 import com.jojo.zhuhaibusclock.service.SegmentService;
 import com.jojo.zhuhaibusclock.service.StationService;
 import lombok.extern.slf4j.Slf4j;
@@ -31,15 +32,17 @@ public class ClockServiceImpl implements ClockService {
 
     private final SysClockMapper clockMapper;
     private final SysUserClockMapper userClockMapper;
+    private final MessageService messageService;
     private final StationService stationService;
     private final SegmentService segmentService;
 
 
     public ClockServiceImpl(SysClockMapper clockMapper, SysUserClockMapper userClockMapper,
-                            StationService stationService, SegmentService segmentService) {
+                            MessageService messageService, StationService stationService, SegmentService segmentService) {
 
         this.clockMapper = clockMapper;
         this.userClockMapper = userClockMapper;
+        this.messageService = messageService;
         this.stationService = stationService;
         this.segmentService = segmentService;
     }
@@ -89,6 +92,11 @@ public class ClockServiceImpl implements ClockService {
     }
 
     @Override
+    public SysClock getClockAndUser(Long clockId) {
+        return clockMapper.selectClockAndUserById(clockId);
+    }
+
+    @Override
     public List<ClockVO> getClockList(Long userId) {
         List<SysClock> clockList = clockMapper.selectClockByUserId(userId);
         List<ClockVO> clockVOList = new ArrayList<>();
@@ -96,6 +104,11 @@ public class ClockServiceImpl implements ClockService {
             clockVOList.add(sysClockToClockVO(clock));
         }
         return clockVOList;
+    }
+
+    @Override
+    public void goOffClock(Long clockId) {
+        SysClock clock = getClockAndUser(clockId);
     }
 
     /**

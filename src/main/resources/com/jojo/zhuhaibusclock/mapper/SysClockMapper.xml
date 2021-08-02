@@ -6,8 +6,8 @@
         <result column="alarm_time" jdbcType="TIME" property="alarmTime"/>
         <result column="repeat_time" jdbcType="VARCHAR" property="repeatTime"/>
         <result column="is_enable" jdbcType="BOOLEAN" property="isEnable"/>
-        <result column="route_id" jdbcType="BIGINT" property="routeId"/>
-        <result column="segment_id" jdbcType="BIGINT" property="segmentId"/>
+        <result column="route_id" jdbcType="VARCHAR" property="routeId"/>
+        <result column="segment_id" jdbcType="VARCHAR" property="segmentId"/>
         <result column="station_id" jdbcType="VARCHAR" property="stationId"/>
     </resultMap>
     <sql id="Base_Column_List">
@@ -33,7 +33,7 @@
                  inner join sys_clock c on uc.clock_id = c.id
         where u.id = #{userId}
     </select>
-    <select id="selectUserAndClockById" resultType="com.jojo.zhuhaibusclock.model.SysClock">
+    <select id="selectClockAndUserById" resultType="com.jojo.zhuhaibusclock.model.SysClock">
         select c.id,
                c.alarm_time,
                c.repeat_time,
@@ -60,7 +60,7 @@
         insert into sys_clock (alarm_time, repeat_time, is_enable,
                                route_id, segment_id, station_id)
         values (#{alarmTime,jdbcType=TIME}, #{repeatTime,jdbcType=VARCHAR}, #{isEnable,jdbcType=BOOLEAN},
-                #{routeId,jdbcType=BIGINT}, #{segmentId,jdbcType=BIGINT}, #{stationId,jdbcType=VARCHAR})
+                #{routeId,jdbcType=VARCHAR}, #{segmentId,jdbcType=VARCHAR}, #{stationId,jdbcType=VARCHAR})
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.jojo.zhuhaibusclock.model.SysClock"
             useGeneratedKeys="true">
@@ -96,10 +96,10 @@
                 #{isEnable,jdbcType=BOOLEAN},
             </if>
             <if test="routeId != null">
-                #{routeId,jdbcType=BIGINT},
+                #{routeId,jdbcType=VARCHAR},
             </if>
             <if test="segmentId != null">
-                #{segmentId,jdbcType=BIGINT},
+                #{segmentId,jdbcType=VARCHAR},
             </if>
             <if test="stationId != null">
                 #{stationId,jdbcType=VARCHAR},
@@ -119,10 +119,10 @@
                 is_enable = #{isEnable,jdbcType=BOOLEAN},
             </if>
             <if test="routeId != null">
-                route_id = #{routeId,jdbcType=BIGINT},
+                route_id = #{routeId,jdbcType=VARCHAR},
             </if>
             <if test="segmentId != null">
-                segment_id = #{segmentId,jdbcType=BIGINT},
+                segment_id = #{segmentId,jdbcType=VARCHAR},
             </if>
             <if test="stationId != null">
                 station_id = #{stationId,jdbcType=VARCHAR},
@@ -135,8 +135,8 @@
         set alarm_time  = #{alarmTime,jdbcType=TIME},
             repeat_time = #{repeatTime,jdbcType=VARCHAR},
             is_enable   = #{isEnable,jdbcType=BOOLEAN},
-            route_id    = #{routeId,jdbcType=BIGINT},
-            segment_id  = #{segmentId,jdbcType=BIGINT},
+            route_id    = #{routeId,jdbcType=VARCHAR},
+            segment_id  = #{segmentId,jdbcType=VARCHAR},
             station_id  = #{stationId,jdbcType=VARCHAR}
         where id = #{id,jdbcType=BIGINT}
     </update>

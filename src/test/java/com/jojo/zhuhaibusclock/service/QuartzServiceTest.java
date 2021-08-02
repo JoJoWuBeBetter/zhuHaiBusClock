@@ -24,7 +24,7 @@ public class QuartzServiceTest {
         clock.setId(9L);
         quartzService.addClockSchedule(clock);
         try {
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
             log.error(e.getMessage());
         } finally {

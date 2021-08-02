@@ -4,6 +4,9 @@ import com.jojo.zhuhaibusclock.model.SysSegment;
 import com.jojo.zhuhaibusclock.model.SysSegmentKey;
 import org.apache.ibatis.annotations.Mapper;
 
+/**
+ * @author JoJoWu
+ */
 @Mapper
 public interface SysSegmentMapper {
     int deleteByPrimaryKey(SysSegmentKey key);
@@ -14,7 +17,7 @@ public interface SysSegmentMapper {
 
     SysSegment selectByPrimaryKey(SysSegmentKey key);
 
-    SysSegment selectBySegmentIdAndRouteId(Long segmentId, Long routeId);
+    SysSegment selectBySegmentIdAndRouteId(String segmentId, String routeId);
 
     int updateByPrimaryKeySelective(SysSegment record);
 

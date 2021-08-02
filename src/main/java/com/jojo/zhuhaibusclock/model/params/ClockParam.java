@@ -27,10 +27,10 @@ public class ClockParam {
     private Boolean isEnable;
 
     @NotNull(message = "公交路线不能为空")
-    private Long routeId;
+    private String routeId;
 
     @NotNull(message = "公交路线不能为空")
-    private Long segmentId;
+    private String segmentId;
 
     @NotNull(message = "车站不能为空")
     private String stationId;

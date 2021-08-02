@@ -5,19 +5,19 @@ import lombok.Data;
 
 /**
  * sys_segment
- * @author 
+ * @author JoJoWu
  */
 @Data
 public class SysSegmentKey implements Serializable {
     /**
      * 公交行驶路线ID
      */
-    private Long segmentId;
+    private String segmentId;
 
     /**
      * 公交路线ID
      */
-    private Long routeId;
+    private String routeId;
 
     private static final long serialVersionUID = 1L;
 }

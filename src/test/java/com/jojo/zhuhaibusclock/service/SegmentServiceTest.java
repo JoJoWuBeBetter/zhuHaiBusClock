@@ -18,14 +18,14 @@ public class SegmentServiceTest {
 
     @Test
     public void findSegmentTest() {
-        SysSegment segment = segmentService.findSegment(2685L, 205L);
+        SysSegment segment = segmentService.findSegment("2685", "205");
         Assert.assertNotNull(segment);
         Assert.assertEquals(segment.getRouteName(), "25路");
     }
 
     @Test
     public void deleteSegment() {
-        Assert.assertNotNull(segmentService.findSegment(2685L, 205L));
-        segmentService.deleteSegment(2685L, 205L);
+        Assert.assertNotNull(segmentService.findSegment("2685", "205"));
+        segmentService.deleteSegment("2685", "205");
     }
 }

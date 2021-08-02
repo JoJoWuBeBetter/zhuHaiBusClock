@@ -1,5 +1,6 @@
 package com.jojo.zhuhaibusclock.quartz;
 
+import com.alibaba.fastjson.JSON;
 import com.jojo.zhuhaibusclock.model.SysClock;
 import com.jojo.zhuhaibusclock.service.ClockService;
 import com.jojo.zhuhaibusclock.service.MessageService;
@@ -9,28 +10,29 @@ import org.quartz.JobExecutionContext;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-
 /**
  * @author JoJoWu
  */
 @Component
 @Slf4j
 public class ClockJob extends QuartzJobBean {
-    ClockService clockService;
-    MessageService messageService;
+    private final ClockService clockService;
+    private final MessageService messageService;
 
-    public ClockJob(ClockService clockService) {
+
+    public ClockJob(ClockService clockService, MessageService messageService) {
         this.clockService = clockService;
+        this.messageService = messageService;
+
     }
 
 
     @Override
     protected void executeInternal(JobExecutionContext context) {
         JobDataMap jobDataMap = context.getMergedJobDataMap();
-        SysClock clock = clockService.getClock(jobDataMap.getLong("clockId"));
-//        messageService.pushMessage();
-        log.info(clock.toString());
-//        System.out.println("ClockJob<" + jobDataMap.getLong("clockId") + ">:" + new Date());
+        clockService.goOffClock(jobDataMap.getLong("clockId"));
+//        messageService.pushMessage(clock.getUser().getBarkKey(), JSON.toJSONString(clock.getUser()), JSON.toJSONString(clock));
+//        log.info(clock.toString());
+
     }
 }

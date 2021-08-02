@@ -1,6 +1,5 @@
 package com.jojo.zhuhaibusclock.mapper;
 
-import com.alibaba.fastjson.JSON;
 import com.jojo.zhuhaibusclock.ZhuHaiBusClockApplication;
 import com.jojo.zhuhaibusclock.model.SysClock;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +19,7 @@ public class SysClockMapperTest {
 
     @Test
     public void selectUserAndClockById() {
-        SysClock clock = clockMapper.selectUserAndClockById(9L);
+        SysClock clock = clockMapper.selectClockAndUserById(9L);
         log.info(clock.toString());
         Assert.assertNotNull(clock);
 //        Assert.assertNotNull();

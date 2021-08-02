@@ -8,9 +8,9 @@ import com.jojo.zhuhaibusclock.model.SysSegment;
 public interface SegmentService {
     int addSegment(SysSegment segments);
 
-    SysSegment findSegment(Long segmentId, Long routeId);
+    SysSegment findSegment(String segmentId, String routeId);
 
     void updateSegment(SysSegment segment);
 
-    void deleteSegment(Long segmentId, Long routeId);
+    void deleteSegment(String segmentId, String routeId);
 }

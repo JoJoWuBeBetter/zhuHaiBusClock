@@ -32,7 +32,7 @@ public class ClockVO {
     /**
      * 路线ID
      */
-    private Long routeId;
+    private String routeId;
 
     /**
      * 路线名称
@@ -42,7 +42,7 @@ public class ClockVO {
     /**
      * 辅助路线ID查询
      */
-    private Long segmentId;
+    private String segmentId;
 
     /**
      * 车站ID
