@@ -1,6 +1,7 @@
-package com.jojo.zhuhaibusclock.service;
+package com.jojo.zhuhaibusclock.service.impl;
 
 import com.jojo.zhuhaibusclock.model.SysSegment;
+import com.jojo.zhuhaibusclock.service.SegmentService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-public class SegmentServiceTest {
+public class SegmentServiceImplTest {
     @Autowired
     SegmentService segmentService;
 

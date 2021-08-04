@@ -1,4 +1,4 @@
-package com.jojo.zhuhaibusclock.service;
+package com.jojo.zhuhaibusclock.service.impl;
 
 import com.jojo.zhuhaibusclock.model.SysClock;
 import com.jojo.zhuhaibusclock.quartz.service.QuartzService;
@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-public class QuartzServiceTest {
+public class QuartzServiceImplTest {
     @Autowired
     QuartzService quartzService;
 

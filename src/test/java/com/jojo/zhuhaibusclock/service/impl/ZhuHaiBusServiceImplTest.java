@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-public class ZhuHaiBusServiceTest {
+public class ZhuHaiBusServiceImplTest {
     @Autowired
     ZhuHaiBusService zhuHaiBusService;
 
