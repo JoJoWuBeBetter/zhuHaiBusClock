@@ -61,6 +61,9 @@ public class BusPos {
     @JSONField(name = "LeaveOrStop")
     private Long leaveOrStop;
 
+    @JSONField(name = "SpaceNum")
+    private Long spaceNum;
+
     /**
      * BusPostion
      */
