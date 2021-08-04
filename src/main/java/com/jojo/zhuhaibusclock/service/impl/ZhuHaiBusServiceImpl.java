@@ -6,7 +6,6 @@ import com.jojo.zhuhaibusclock.exception.SeverErrorException;
 import com.jojo.zhuhaibusclock.mapper.SysSegmentMapper;
 import com.jojo.zhuhaibusclock.mapper.SysStationMapper;
 import com.jojo.zhuhaibusclock.model.SysStation;
-import com.jojo.zhuhaibusclock.model.entity.Station;
 import com.jojo.zhuhaibusclock.model.result.RouteRunningDetailResult;
 import com.jojo.zhuhaibusclock.model.result.SearchBusByKeywordResult;
 import com.jojo.zhuhaibusclock.model.result.StationSegmentListResult;
@@ -67,25 +66,58 @@ public class ZhuHaiBusServiceImpl implements ZhuHaiBusService {
     }
 
     /**
+     * 查询路线运行情况
+     *
      * @param routeId   路线ID
      * @param segmentId 空间ID（具体不知道公交那边的作用）
      * @return 查询结果
      */
     @Override
     public RouteRunningDetailResult getRouteRunningDetail(String routeId, String segmentId) {
-        ZhuHaiBusResponseBody responseBody = null;
+        ZhuHaiBusResponseBody responseBody;
         try {
             responseBody = busApi.getRouteRunningDetail(routeId, segmentId).execute().body();
         } catch (IOException e) {
             throw new NotFoundException("道路运行详情查询失败");
         }
+        return responseBodyToRouteRunningDetailResult(responseBody);
+    }
+
+    /**
+     * 查询指定车站的路线运行情况
+     *
+     * @param routeId   路线ID
+     * @param segmentId 空间ID
+     * @param stationId 车站ID
+     * @return 查询结果
+     */
+    @Override
+    public RouteRunningDetailResult getRouteRunningDetail(String routeId, String segmentId, String stationId) {
+        ZhuHaiBusResponseBody responseBody;
+        try {
+            responseBody = busApi.getRouteRunningDetail(routeId, segmentId, stationId).execute().body();
+        } catch (IOException e) {
+            throw new NotFoundException("道路运行详情查询失败");
+        }
+        return responseBodyToRouteRunningDetailResult(responseBody);
+    }
+
+    /**
+     * 把responseBody转换为RouteRunningDetailResult（道路详情结果）
+     *
+     * @param responseBody 请求响应本体
+     * @return 结果
+     */
+    private RouteRunningDetailResult responseBodyToRouteRunningDetailResult(ZhuHaiBusResponseBody responseBody) {
         if (responseBody == null) {
             throw new NotFoundException("道路运行详情查询失败");
         }
         RouteRunningDetailResult result = getResult(responseBody, RouteRunningDetailResult.class);
         result.getStations().forEach(station -> {
             if (stationMapper.selectByPrimaryKey(station.getStationId()) == null) {
-                stationToSysStation(station);
+                SysStation sysStation = new SysStation();
+                BeanUtils.copyProperties(station, sysStation);
+                stationMapper.insert(sysStation);
             }
         });
         return result;
@@ -143,12 +175,4 @@ public class ZhuHaiBusServiceImpl implements ZhuHaiBusService {
         return JSON.parseObject(result, classOfT);
     }
 
-    private void stationToSysStation(Station station) {
-        SysStation sysStation = new SysStation();
-        BeanUtils.copyProperties(station, sysStation);
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-//        sysStation.setCreatedAt(LocalDateTime.parse(station.getCreatedAt(), formatter));
-//        sysStation.setUpdatedAt(LocalDateTime.parse(station.getUpdatedAt(), formatter));
-        stationMapper.insert(sysStation);
-    }
 }

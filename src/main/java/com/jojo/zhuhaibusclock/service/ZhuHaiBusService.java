@@ -21,5 +21,7 @@ public interface ZhuHaiBusService {
 
     RouteRunningDetailResult getRouteRunningDetail(String routeId, String segmentId);
 
+    RouteRunningDetailResult getRouteRunningDetail(String routeId, String segmentId, String stationId);
+
     StationSegmentListResult getStationSegmentList(String stationId);
 }

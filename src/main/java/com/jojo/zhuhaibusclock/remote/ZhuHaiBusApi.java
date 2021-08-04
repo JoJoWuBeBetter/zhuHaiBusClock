@@ -18,7 +18,7 @@ public interface ZhuHaiBusApi {
      *
      * @param type    查询类型
      * @param keyword 查询关键字
-     * @return 查询请求
+     * @return 查询响应
      */
     @Headers({
             "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat",
@@ -33,7 +33,7 @@ public interface ZhuHaiBusApi {
      *
      * @param routeId   公交路线ID
      * @param segmentId 开往终点站ID
-     * @return 查询请求
+     * @return 查询响应
      */
     @Headers({
             "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat",
@@ -44,9 +44,26 @@ public interface ZhuHaiBusApi {
     Call<ZhuHaiBusResponseBody> getRouteRunningDetail(@Query("routeid") String routeId, @Query("segmentid") String segmentId);
 
     /**
-     * 查询
-     * @param stationId
-     * @return
+     * 查询公交路线行驶状况
+     *
+     * @param routeId   公交路线ID
+     * @param segmentId 开往终点站ID
+     * @param stationId 目标车站ID
+     * @return 查询响应
+     */
+    @Headers({
+            "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat",
+            "content-type: application/json",
+            "Referer: https://servicewechat.com/wxbe3e13998d884cdd/50/page-frame.html"
+    })
+    @GET("getRouteRunningDetail")
+    Call<ZhuHaiBusResponseBody> getRouteRunningDetail(@Query("routeid") String routeId, @Query("segmentid") String segmentId, @Query("stationid") String stationId);
+
+    /**
+     * 查询车站
+     *
+     * @param stationId 车站ID
+     * @return 查询响应
      */
     @Headers({
             "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat",

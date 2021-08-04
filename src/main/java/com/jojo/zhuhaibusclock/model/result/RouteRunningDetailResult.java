@@ -19,15 +19,17 @@ import java.util.List;
 public class RouteRunningDetailResult {
 
     @JSONField(name = "RouteID")
-    private String routeID;
+    private String routeId;
     @JSONField(name = "SegmentID")
-    private String segmentID;
+    private String segmentId;
     @JSONField(name = "BusPosList")
     private List<BusPos> busPosList;
     @JSONField(name = "GpsTime")
     private Integer gpsTime;
     @JSONField(name = "stations")
     private List<Station> stations;
+    @JSONField(name = "nearestbus")
+    private List<BusPos> nearestBus;
     @JSONField(name = "routes")
     private List<Route> routes;
 }

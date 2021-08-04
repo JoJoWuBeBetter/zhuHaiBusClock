@@ -44,7 +44,7 @@ public class BusPos {
      * busPostion
      */
     @JSONField(name = "BusPostion")
-    private BusPostion busPostion;
+    private BusPosition busPosition;
     /**
      * productid
      */
@@ -66,7 +66,7 @@ public class BusPos {
      */
     @NoArgsConstructor
     @Data
-    public static class BusPostion {
+    public static class BusPosition {
         /**
          * longitude
          */

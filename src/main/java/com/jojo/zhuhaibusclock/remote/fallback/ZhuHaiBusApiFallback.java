@@ -8,7 +8,7 @@ import retrofit2.Call;
 /**
  * @author JoJoWu
  */
-public class ZhuHaiBusApiFallback implements ZhuHaiBusApi {
+public abstract class ZhuHaiBusApiFallback implements ZhuHaiBusApi {
     @Override
     public Call<ZhuHaiBusResponseBody> searchBusByKeyword(int type, String keyword) {
 
