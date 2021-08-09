@@ -6,14 +6,13 @@ import com.jojo.zhuhaibusclock.exception.NotFoundException;
 import com.jojo.zhuhaibusclock.mapper.SysClockMapper;
 import com.jojo.zhuhaibusclock.mapper.SysUserClockMapper;
 import com.jojo.zhuhaibusclock.model.SysClock;
-import com.jojo.zhuhaibusclock.model.SysSegment;
-import com.jojo.zhuhaibusclock.model.SysStation;
 import com.jojo.zhuhaibusclock.model.SysUserClock;
+import com.jojo.zhuhaibusclock.model.dto.RouteDTO;
 import com.jojo.zhuhaibusclock.model.params.ClockParam;
 import com.jojo.zhuhaibusclock.model.vo.ClockVO;
 import com.jojo.zhuhaibusclock.service.ClockService;
 import com.jojo.zhuhaibusclock.service.MessageService;
-import com.jojo.zhuhaibusclock.service.SegmentService;
+import com.jojo.zhuhaibusclock.service.RouteService;
 import com.jojo.zhuhaibusclock.service.StationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -22,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author JoJoWu
@@ -34,17 +34,17 @@ public class ClockServiceImpl implements ClockService {
     private final SysUserClockMapper userClockMapper;
     private final MessageService messageService;
     private final StationService stationService;
-    private final SegmentService segmentService;
+    private final RouteService routeService;
 
 
     public ClockServiceImpl(SysClockMapper clockMapper, SysUserClockMapper userClockMapper,
-                            MessageService messageService, StationService stationService, SegmentService segmentService) {
+                            MessageService messageService, StationService stationService, RouteService routeService) {
 
         this.clockMapper = clockMapper;
         this.userClockMapper = userClockMapper;
         this.messageService = messageService;
         this.stationService = stationService;
-        this.segmentService = segmentService;
+        this.routeService = routeService;
     }
 
     /**
@@ -106,6 +106,8 @@ public class ClockServiceImpl implements ClockService {
         return clockVOList;
     }
 
+    //TODO 闹钟提醒未完成
+
     @Override
     public void goOffClock(Long clockId) {
         SysClock clock = getClockAndUser(clockId);
@@ -152,11 +154,14 @@ public class ClockServiceImpl implements ClockService {
     private ClockVO sysClockToClockVO(SysClock sysClock) {
         ClockVO clockVO = new ClockVO();
         BeanUtils.copyProperties(sysClock, clockVO);
-        SysSegment sysSegment = segmentService.findSegment(sysClock.getSegmentId(), sysClock.getRouteId());
-        SysStation station = stationService.findStation(sysClock.getStationId());
+        RouteDTO routeDTO = routeService.getRoute(sysClock.getRouteId(), sysClock.getSegmentId(), sysClock.getStationId());
 
-        clockVO.setRouteName(sysSegment.getRouteName());
-        clockVO.setStationName(station.getStationName());
+        routeDTO.getStations().forEach(stationDTO -> {
+            if (stationDTO.getStationId().equals(sysClock.getStationId())) {
+                clockVO.setStationName(stationDTO.getStationName());
+            }
+        });
+        clockVO.setRouteName(routeDTO.getRouteName());
         return clockVO;
     }
 }
