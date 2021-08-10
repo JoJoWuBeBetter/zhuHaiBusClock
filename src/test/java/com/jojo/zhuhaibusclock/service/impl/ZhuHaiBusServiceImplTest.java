@@ -29,6 +29,9 @@ public class ZhuHaiBusServiceImplTest {
         RouteRunningDetailResult result = zhuHaiBusService.getRouteRunningDetail("235", "60264", "66201706090919319171");
         Assert.assertNotNull(result);
         log.info(JSON.toJSONString(result));
+         result = zhuHaiBusService.getRouteRunningDetail("235", "60264");
+        Assert.assertNotNull(result);
+        log.info(JSON.toJSONString(result));
     }
 
     @Test

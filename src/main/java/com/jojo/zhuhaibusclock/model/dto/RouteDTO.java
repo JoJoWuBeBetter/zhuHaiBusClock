@@ -13,5 +13,6 @@ public class RouteDTO {
     private String segmentId;
     private String routeName;
     private String segmentName;
+    private RouteDTO reverseRoute;
     private List<StationDTO> stations;
 }

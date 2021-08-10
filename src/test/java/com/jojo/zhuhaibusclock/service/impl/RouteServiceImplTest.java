@@ -33,8 +33,8 @@ public class RouteServiceImplTest {
     }
 
     @Test
-    public void getRoute() {
-        RouteDTO routeDTO = routeService.getRoute("235", "60264", "66201706090919319171");
+    public void getRouteDetail() {
+        RouteDTO routeDTO = routeService.getRouteDetail("235", "60264");
         Assert.assertNotNull(routeDTO);
         log.info(JSON.toJSONString(routeDTO));
     }

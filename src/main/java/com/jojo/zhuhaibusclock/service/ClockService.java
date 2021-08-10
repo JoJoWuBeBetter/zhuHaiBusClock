@@ -3,7 +3,6 @@ package com.jojo.zhuhaibusclock.service;
 import com.jojo.zhuhaibusclock.model.SysClock;
 import com.jojo.zhuhaibusclock.model.params.ClockParam;
 import com.jojo.zhuhaibusclock.model.vo.ClockVO;
-import lombok.extern.java.Log;
 
 import java.util.List;
 
@@ -22,14 +21,21 @@ public interface ClockService {
     SysClock updateClock(ClockParam clockParam);
 
     /**
-     * 获取闹钟
+     * 查找闹钟
+     *
+     * @param clockId 闹钟ID
+     * @return 闹钟
+     */
+    SysClock getClock(Long clockId);
+
+    /**
+     * 获取闹钟VO
      *
      * @param clockId 闹钟ID
      * @return 闹钟
      */
     ClockVO getClockVO(Long clockId);
 
-    SysClock getClock(Long clockId);
 
     SysClock getClockAndUser(Long clockId);
 

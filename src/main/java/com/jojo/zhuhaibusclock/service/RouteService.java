@@ -16,5 +16,7 @@ public interface RouteService {
 
     void deleteSegment(String segmentId, String routeId);
 
-    RouteDTO getRoute(String routeId, String segmentId, String stationId);
+    RouteDTO getRouteRunningDetail(String routeId, String segmentId, String stationId);
+
+    RouteDTO getRouteDetail(String routeId, String segmentId);
 }

@@ -91,18 +91,33 @@ public class RouteServiceImpl implements RouteService {
     }
 
     @Override
-    public RouteDTO getRoute(String routeId, String segmentId, String stationId) {
+    public RouteDTO getRouteRunningDetail(String routeId, String segmentId, String stationId) {
         RouteRunningDetailResult result = zhuHaiBusService.getRouteRunningDetail(routeId, segmentId, stationId);
+        return resultToRouteDTO(routeId, segmentId, result);
+    }
+
+    @Override
+    @Cacheable(cacheNames = "routeDetail", key = "#routeId + '&' + #segmentId")
+    public RouteDTO getRouteDetail(String routeId, String segmentId) {
+        RouteRunningDetailResult result = zhuHaiBusService.getRouteRunningDetail(routeId, segmentId);
+        return resultToRouteDTO(routeId, segmentId, result);
+    }
+
+    private RouteDTO resultToRouteDTO(String routeId, String segmentId, RouteRunningDetailResult result) {
         if (result == null) {
             throw new NotFoundException("没有找到对应路线");
         }
         RouteDTO routeDTO = new RouteDTO();
+        RouteDTO reverseRouteDTO = new RouteDTO();
         routeDTO.setStations(new ArrayList<>());
         result.getRoutes().forEach(route -> {
             if (routeId.equals(route.getRouteId()) && segmentId.equals(route.getSegmentId())) {
                 BeanUtils.copyProperties(route, routeDTO);
+            } else {
+                BeanUtils.copyProperties(route, reverseRouteDTO);
             }
         });
+        routeDTO.setReverseRoute(reverseRouteDTO);
         result.getStations().forEach(station -> {
             StationDTO stationDTO = new StationDTO();
             BeanUtils.copyProperties(station, stationDTO);

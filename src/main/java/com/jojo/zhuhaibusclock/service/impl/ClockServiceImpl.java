@@ -10,6 +10,7 @@ import com.jojo.zhuhaibusclock.model.SysUserClock;
 import com.jojo.zhuhaibusclock.model.dto.RouteDTO;
 import com.jojo.zhuhaibusclock.model.params.ClockParam;
 import com.jojo.zhuhaibusclock.model.vo.ClockVO;
+import com.jojo.zhuhaibusclock.model.vo.StationVO;
 import com.jojo.zhuhaibusclock.service.ClockService;
 import com.jojo.zhuhaibusclock.service.MessageService;
 import com.jojo.zhuhaibusclock.service.RouteService;
@@ -21,7 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author JoJoWu
@@ -77,10 +77,6 @@ public class ClockServiceImpl implements ClockService {
         return clock;
     }
 
-    @Override
-    public ClockVO getClockVO(Long clockId) {
-        return sysClockToClockVO(getClock(clockId));
-    }
 
     @Override
     public SysClock getClock(Long clockId) {
@@ -90,6 +86,12 @@ public class ClockServiceImpl implements ClockService {
         }
         return clock;
     }
+
+    @Override
+    public ClockVO getClockVO(Long clockId) {
+        return sysClockToClockVO(getClock(clockId));
+    }
+
 
     @Override
     public SysClock getClockAndUser(Long clockId) {
@@ -154,14 +156,21 @@ public class ClockServiceImpl implements ClockService {
     private ClockVO sysClockToClockVO(SysClock sysClock) {
         ClockVO clockVO = new ClockVO();
         BeanUtils.copyProperties(sysClock, clockVO);
-        RouteDTO routeDTO = routeService.getRoute(sysClock.getRouteId(), sysClock.getSegmentId(), sysClock.getStationId());
+        clockVO.setRepeatTime(sysClock.getRepeatTime().split(","));
 
+        RouteDTO routeDTO = routeService.getRouteDetail(sysClock.getRouteId(), sysClock.getSegmentId());
+        List<StationVO> stationVOList = new ArrayList<>();
         routeDTO.getStations().forEach(stationDTO -> {
             if (stationDTO.getStationId().equals(sysClock.getStationId())) {
                 clockVO.setStationName(stationDTO.getStationName());
             }
+            StationVO stationVO = new StationVO();
+            BeanUtils.copyProperties(stationDTO, stationVO);
+            stationVOList.add(stationVO);
         });
         clockVO.setRouteName(routeDTO.getRouteName());
+        clockVO.setSegmentName(routeDTO.getSegmentName());
+        clockVO.setStations(stationVOList);
         return clockVO;
     }
 }

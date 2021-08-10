@@ -1,8 +1,11 @@
 package com.jojo.zhuhaibusclock.model.vo;
 
+import com.jojo.zhuhaibusclock.model.dto.StationDTO;
+import com.jojo.zhuhaibusclock.model.entity.Station;
 import lombok.Data;
 
 import java.time.LocalTime;
+import java.util.List;
 
 /**
  * @author JoJoWu
@@ -22,7 +25,7 @@ public class ClockVO {
     /**
      * 重复时间
      */
-    private String repeatTime;
+    private String[] repeatTime;
 
     /**
      * 是否启用
@@ -44,6 +47,8 @@ public class ClockVO {
      */
     private String segmentId;
 
+    private String segmentName;
+
     /**
      * 车站ID
      */
@@ -53,4 +58,6 @@ public class ClockVO {
      * 车站名
      */
     private String stationName;
+
+    private List<StationVO> stations;
 }
