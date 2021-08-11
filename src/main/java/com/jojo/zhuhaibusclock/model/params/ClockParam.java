@@ -35,5 +35,4 @@ public class ClockParam {
     @NotNull(message = "车站不能为空")
     private String stationId;
 
-
 }

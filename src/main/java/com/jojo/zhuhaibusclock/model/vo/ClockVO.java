@@ -58,6 +58,4 @@ public class ClockVO {
      * 车站名
      */
     private String stationName;
-
-    private List<StationVO> stations;
 }

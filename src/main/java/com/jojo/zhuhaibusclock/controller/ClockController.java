@@ -5,10 +5,8 @@ import com.jojo.zhuhaibusclock.model.params.ClockParam;
 import com.jojo.zhuhaibusclock.model.vo.ClockVO;
 import com.jojo.zhuhaibusclock.service.ClockService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -20,8 +18,6 @@ import java.util.List;
 @RequestMapping(value = "/clock/")
 public class ClockController {
     private final ClockService clockService;
-    @Autowired
-    private HttpServletRequest request;
 
     public ClockController(ClockService clockService) {
         this.clockService = clockService;

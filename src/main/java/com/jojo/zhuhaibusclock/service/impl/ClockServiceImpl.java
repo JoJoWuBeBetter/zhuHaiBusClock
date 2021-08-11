@@ -159,18 +159,15 @@ public class ClockServiceImpl implements ClockService {
         clockVO.setRepeatTime(sysClock.getRepeatTime().split(","));
 
         RouteDTO routeDTO = routeService.getRouteDetail(sysClock.getRouteId(), sysClock.getSegmentId());
-        List<StationVO> stationVOList = new ArrayList<>();
+
         routeDTO.getStations().forEach(stationDTO -> {
             if (stationDTO.getStationId().equals(sysClock.getStationId())) {
                 clockVO.setStationName(stationDTO.getStationName());
             }
-            StationVO stationVO = new StationVO();
-            BeanUtils.copyProperties(stationDTO, stationVO);
-            stationVOList.add(stationVO);
         });
+
         clockVO.setRouteName(routeDTO.getRouteName());
         clockVO.setSegmentName(routeDTO.getSegmentName());
-        clockVO.setStations(stationVOList);
         return clockVO;
     }
 }

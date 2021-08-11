@@ -3,6 +3,7 @@ package com.jojo.zhuhaibusclock.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.jojo.zhuhaibusclock.model.SysSegment;
 import com.jojo.zhuhaibusclock.model.dto.RouteDTO;
+import com.jojo.zhuhaibusclock.model.vo.RouteVO;
 import com.jojo.zhuhaibusclock.service.RouteService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
@@ -37,5 +38,12 @@ public class RouteServiceImplTest {
         RouteDTO routeDTO = routeService.getRouteDetail("235", "60264");
         Assert.assertNotNull(routeDTO);
         log.info(JSON.toJSONString(routeDTO));
+    }
+
+    @Test
+    public void getRouteVO() {
+        RouteVO routeVO = routeService.getRouteVO("235", "60264");
+        Assert.assertNotNull(routeVO);
+        log.info(JSON.toJSONString(routeVO));
     }
 }

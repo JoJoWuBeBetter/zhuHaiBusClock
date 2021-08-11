@@ -10,6 +10,8 @@ import com.jojo.zhuhaibusclock.model.entity.Segment;
 import com.jojo.zhuhaibusclock.model.entity.Station;
 import com.jojo.zhuhaibusclock.model.result.RouteRunningDetailResult;
 import com.jojo.zhuhaibusclock.model.result.StationSegmentListResult;
+import com.jojo.zhuhaibusclock.model.vo.RouteVO;
+import com.jojo.zhuhaibusclock.model.vo.StationVO;
 import com.jojo.zhuhaibusclock.service.RouteService;
 import com.jojo.zhuhaibusclock.service.ZhuHaiBusService;
 import lombok.extern.slf4j.Slf4j;
@@ -20,15 +22,20 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
+ * P.S:routeService自我注入解决内部无法调用缓存的问题
+ *
  * @author JoJoWu
  */
 @Service
 @Slf4j
 public class RouteServiceImpl implements RouteService {
+
+    @Autowired
+    private RouteService routeService;
 
     private final SysSegmentMapper segmentMapper;
     private final ZhuHaiBusService zhuHaiBusService;
@@ -103,21 +110,36 @@ public class RouteServiceImpl implements RouteService {
         return resultToRouteDTO(routeId, segmentId, result);
     }
 
+    @Override
+    public RouteVO getRouteVO(String routeId, String segmentId) {
+        RouteDTO routeDTO = routeService.getRouteDetail(routeId, segmentId);
+        RouteVO routeVO = new RouteVO();
+        BeanUtils.copyProperties(routeDTO, routeVO);
+        RouteVO reverseRouteVO = new RouteVO();
+        List<StationVO> stationVOList = new ArrayList<>();
+        routeDTO.getStations().forEach(stationDTO -> {
+            StationVO stationVO = new StationVO();
+            BeanUtils.copyProperties(stationDTO, stationVO);
+            stationVOList.add(stationVO);
+        });
+        routeVO.setStations(stationVOList);
+        return routeVO;
+    }
+
     private RouteDTO resultToRouteDTO(String routeId, String segmentId, RouteRunningDetailResult result) {
         if (result == null) {
             throw new NotFoundException("没有找到对应路线");
         }
         RouteDTO routeDTO = new RouteDTO();
-        RouteDTO reverseRouteDTO = new RouteDTO();
         routeDTO.setStations(new ArrayList<>());
         result.getRoutes().forEach(route -> {
             if (routeId.equals(route.getRouteId()) && segmentId.equals(route.getSegmentId())) {
                 BeanUtils.copyProperties(route, routeDTO);
             } else {
-                BeanUtils.copyProperties(route, reverseRouteDTO);
+                routeDTO.setReverseRouteId(route.getRouteId());
+                routeDTO.setReverseSegmentId(route.getSegmentId());
             }
         });
-        routeDTO.setReverseRoute(reverseRouteDTO);
         result.getStations().forEach(station -> {
             StationDTO stationDTO = new StationDTO();
             BeanUtils.copyProperties(station, stationDTO);
