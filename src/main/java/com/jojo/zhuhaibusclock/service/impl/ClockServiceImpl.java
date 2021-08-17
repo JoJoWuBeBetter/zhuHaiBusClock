@@ -109,7 +109,6 @@ public class ClockServiceImpl implements ClockService {
     }
 
     //TODO 闹钟提醒未完成
-
     @Override
     public void goOffClock(Long clockId) {
         SysClock clock = getClockAndUser(clockId);
@@ -156,7 +155,7 @@ public class ClockServiceImpl implements ClockService {
     private ClockVO sysClockToClockVO(SysClock sysClock) {
         ClockVO clockVO = new ClockVO();
         BeanUtils.copyProperties(sysClock, clockVO);
-        clockVO.setRepeatTime(sysClock.getRepeatTime().split(","));
+        clockVO.setRepeatTime(sysClock.getRepeatTime() != null ? sysClock.getRepeatTime().split(",") : null);
 
         RouteDTO routeDTO = routeService.getRouteDetail(sysClock.getRouteId(), sysClock.getSegmentId());
 
