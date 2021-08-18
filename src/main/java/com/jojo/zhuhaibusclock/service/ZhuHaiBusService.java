@@ -1,6 +1,7 @@
 package com.jojo.zhuhaibusclock.service;
 
 
+import com.jojo.zhuhaibusclock.model.result.RealtimeInfoListResult;
 import com.jojo.zhuhaibusclock.model.result.StationSegmentListResult;
 import com.jojo.zhuhaibusclock.model.result.RouteRunningDetailResult;
 import com.jojo.zhuhaibusclock.model.result.SearchBusByKeywordResult;
@@ -24,4 +25,6 @@ public interface ZhuHaiBusService {
     RouteRunningDetailResult getRouteRunningDetail(String routeId, String segmentId, String stationId);
 
     StationSegmentListResult getStationSegmentList(String stationId);
+
+    RealtimeInfoListResult getRealtimeInfoList(String stationId, String routeId);
 }

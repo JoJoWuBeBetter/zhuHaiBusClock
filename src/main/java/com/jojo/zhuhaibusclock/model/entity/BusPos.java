@@ -64,6 +64,35 @@ public class BusPos {
     @JSONField(name = "SpaceNum")
     private Integer spaceNum;
 
+
+    @JSONField(name = "RunTime")
+    private Integer runTime;
+
+    @JSONField(name = "ISLast")
+    private Integer iSLast;
+
+    /**
+     * foreCastInfo1
+     */
+    @JSONField(name = "ForeCastInfo1")
+    private String foreCastInfo1;
+    /**
+     * foreCastInfo2
+     */
+    @JSONField(name = "ForeCastInfo2")
+    private String foreCastInfo2;
+
+    /**
+     * departureState
+     */
+    @JSONField(name = "DepartureState")
+    private String departureState;
+    /**
+     * sortTime
+     */
+    @JSONField(name = "SortTime")
+    private Integer sortTime;
+
     /**
      * BusPostion
      */

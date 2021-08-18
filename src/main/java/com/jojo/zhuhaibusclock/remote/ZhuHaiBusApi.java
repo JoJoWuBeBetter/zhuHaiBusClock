@@ -18,7 +18,7 @@ public interface ZhuHaiBusApi {
      *
      * @param type    查询类型
      * @param keyword 查询关键字
-     * @return 查询响应
+     * @return responseBody
      */
     @Headers({
             "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat",
@@ -33,7 +33,7 @@ public interface ZhuHaiBusApi {
      *
      * @param routeId   公交路线ID
      * @param segmentId 开往终点站ID
-     * @return 查询响应
+     * @return responseBody
      */
     @Headers({
             "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat",
@@ -49,7 +49,7 @@ public interface ZhuHaiBusApi {
      * @param routeId   公交路线ID
      * @param segmentId 开往终点站ID
      * @param stationId 目标车站ID
-     * @return 查询响应
+     * @return responseBody
      */
     @Headers({
             "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat",
@@ -63,7 +63,7 @@ public interface ZhuHaiBusApi {
      * 查询车站
      *
      * @param stationId 车站ID
-     * @return 查询响应
+     * @return responseBody
      */
     @Headers({
             "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat",
@@ -72,4 +72,19 @@ public interface ZhuHaiBusApi {
     })
     @GET("getStationSegmentlist")
     Call<ZhuHaiBusResponseBody> getStationSegmentList(@Query("StationID") String stationId);
+
+    /**
+     * 查询当前路线此车站情况
+     *
+     * @param stationId 公交ID
+     * @param routeId   路线ID
+     * @return responseBody
+     */
+    @Headers({
+            "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat",
+            "content-type: application/json",
+            "Referer: https://servicewechat.com/wxbe3e13998d884cdd/50/page-frame.html"
+    })
+    @GET("getRealtimeInfoList")
+    Call<ZhuHaiBusResponseBody> getRealtimeInfoList(@Query("StationID") String stationId, @Query("RouteID") String routeId);
 }

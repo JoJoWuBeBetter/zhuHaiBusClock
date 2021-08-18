@@ -6,6 +6,7 @@ import com.jojo.zhuhaibusclock.exception.SeverErrorException;
 import com.jojo.zhuhaibusclock.mapper.SysSegmentMapper;
 import com.jojo.zhuhaibusclock.mapper.SysStationMapper;
 import com.jojo.zhuhaibusclock.model.SysStation;
+import com.jojo.zhuhaibusclock.model.result.RealtimeInfoListResult;
 import com.jojo.zhuhaibusclock.model.result.RouteRunningDetailResult;
 import com.jojo.zhuhaibusclock.model.result.SearchBusByKeywordResult;
 import com.jojo.zhuhaibusclock.model.result.StationSegmentListResult;
@@ -22,6 +23,8 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -99,7 +102,6 @@ public class ZhuHaiBusServiceImpl implements ZhuHaiBusService {
         } catch (IOException e) {
             throw new NotFoundException("道路运行详情查询失败");
         }
-        log.info(JSON.toJSONString(responseBody));
         return responseBodyToRouteRunningDetailResult(responseBody);
     }
 
@@ -144,6 +146,20 @@ public class ZhuHaiBusServiceImpl implements ZhuHaiBusService {
         return getResult(responseBody, StationSegmentListResult.class);
     }
 
+    @Override
+    public RealtimeInfoListResult getRealtimeInfoList(String stationId, String routeId) {
+        ZhuHaiBusResponseBody responseBody;
+        try {
+            responseBody = busApi.getRealtimeInfoList(stationId, routeId).execute().body();
+        } catch (IOException e) {
+            throw new NotFoundException("车站详情查询失败");
+        }
+        if (responseBody == null) {
+            throw new NotFoundException("车站详情查询失败");
+        }
+        return getResult(responseBody, RealtimeInfoListResult.class);
+    }
+
     /**
      * 通过responseBody转换为指定class的实例
      *
@@ -172,7 +188,6 @@ public class ZhuHaiBusServiceImpl implements ZhuHaiBusService {
             log.error("错误的BadPadding");
             throw new SeverErrorException("算法解密错误");
         }
-        log.info(result);
         return JSON.parseObject(result, classOfT);
     }
 

@@ -1,6 +1,7 @@
 package com.jojo.zhuhaibusclock.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.jojo.zhuhaibusclock.model.result.RealtimeInfoListResult;
 import com.jojo.zhuhaibusclock.model.result.RouteRunningDetailResult;
 import com.jojo.zhuhaibusclock.service.ZhuHaiBusService;
 import lombok.extern.slf4j.Slf4j;
@@ -33,5 +34,12 @@ public class ZhuHaiBusServiceImplTest {
 
     @Test
     public void getStationSegmentList() {
+    }
+
+    @Test
+    public void getRealtimeInfoList() {
+        RealtimeInfoListResult result = zhuHaiBusService.getRealtimeInfoList("55181009122103996000", "235");
+        Assert.assertNotNull(result);
+        log.info(JSON.toJSONString(result));
     }
 }
