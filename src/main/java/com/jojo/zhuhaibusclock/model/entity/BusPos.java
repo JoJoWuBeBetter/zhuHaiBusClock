@@ -20,78 +20,66 @@ public class BusPos {
      */
     @JSONField(name = "BusName")
     private String busName;
+
+    @JSONField(name = "ArriveStaName")
+    private String arriveStaName;
+
+    @JSONField(name = "ArriveStaInfo")
+    private String arriveStaInfo;
+
+    @JSONField(name = "ArriveTime")
+    private String arriveTime;
+
+    @JSONField(name = "BusPostion")
+    private BusPosition busPosition;
     /**
      * stationID
      */
     @JSONField(name = "StationID")
     private String stationId;
-    /**
-     * arriveTime
-     */
-    @JSONField(name = "ArriveTime")
-    private String arriveTime;
-    /**
-     * arriveStaInfo
-     */
-    @JSONField(name = "ArriveStaInfo")
-    private String arriveStaInfo;
-    /**
-     * nextStaInfo
-     */
-    @JSONField(name = "NextStaInfo")
-    private String nextStaInfo;
-    /**
-     * busPostion
-     */
-    @JSONField(name = "BusPostion")
-    private BusPosition busPosition;
-    /**
-     * productid
-     */
-    @JSONField(name = "Productid")
-    private String productId;
-    /**
-     * subRouteID
-     */
-    @JSONField(name = "SubRouteID")
-    private Integer subRouteId;
-    /**
-     * leaveOrStop
-     */
-    @JSONField(name = "LeaveOrStop")
-    private Integer leaveOrStop;
 
     @JSONField(name = "SpaceNum")
     private Integer spaceNum;
 
-
     @JSONField(name = "RunTime")
     private Integer runTime;
+
+    @JSONField(name = "Distance")
+    private Integer distance;
 
     @JSONField(name = "ISLast")
     private Integer iSLast;
 
-    /**
-     * foreCastInfo1
-     */
     @JSONField(name = "ForeCastInfo1")
     private String foreCastInfo1;
-    /**
-     * foreCastInfo2
-     */
+
     @JSONField(name = "ForeCastInfo2")
     private String foreCastInfo2;
 
-    /**
-     * departureState
-     */
+    @JSONField(name = "Areaconglevel")
+    private String areaconglevel;
+
+    @JSONField(name = "Temperature")
+    private String temperature;
+
+    @JSONField(name = "Productid")
+    private String productId;
+
+    @JSONField(name = "SubRouteID")
+    private Integer subRouteId;
+
+    @JSONField(name = "LeaveOrStop")
+    private Integer leaveOrStop;
+
     @JSONField(name = "DepartureState")
     private String departureState;
-    /**
-     * sortTime
-     */
+
     @JSONField(name = "SortTime")
     private Integer sortTime;
+
+    @JSONField(name = "NextStaInfo")
+    private String nextStaInfo;
+
 
     /**
      * BusPostion

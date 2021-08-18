@@ -188,6 +188,7 @@ public class ZhuHaiBusServiceImpl implements ZhuHaiBusService {
             log.error("错误的BadPadding");
             throw new SeverErrorException("算法解密错误");
         }
+        log.info(JSON.toJSONString(result));
         return JSON.parseObject(result, classOfT);
     }
 
