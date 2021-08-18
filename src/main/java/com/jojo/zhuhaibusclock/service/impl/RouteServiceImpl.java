@@ -1,10 +1,13 @@
 package com.jojo.zhuhaibusclock.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.jojo.zhuhaibusclock.exception.NotFoundException;
 import com.jojo.zhuhaibusclock.mapper.SysSegmentMapper;
 import com.jojo.zhuhaibusclock.model.SysSegment;
 import com.jojo.zhuhaibusclock.model.SysSegmentKey;
+import com.jojo.zhuhaibusclock.model.dto.BusDTO;
 import com.jojo.zhuhaibusclock.model.dto.RouteDTO;
+import com.jojo.zhuhaibusclock.model.dto.RouteDetailDTO;
 import com.jojo.zhuhaibusclock.model.dto.StationDTO;
 import com.jojo.zhuhaibusclock.model.entity.Segment;
 import com.jojo.zhuhaibusclock.model.entity.Station;
@@ -98,9 +101,9 @@ public class RouteServiceImpl implements RouteService {
     }
 
     @Override
-    public RouteDTO getRouteRunningDetail(String routeId, String segmentId, String stationId) {
+    public RouteDetailDTO getRouteRunningDetail(String routeId, String segmentId, String stationId) {
         RouteRunningDetailResult result = zhuHaiBusService.getRouteRunningDetail(routeId, segmentId, stationId);
-        return resultToRouteDTO(routeId, segmentId, result);
+        return resultToRouteDetailDTO(routeId, segmentId, result);
     }
 
     @Override
@@ -146,6 +149,19 @@ public class RouteServiceImpl implements RouteService {
             routeDTO.getStations().add(stationDTO);
         });
         return routeDTO;
+    }
+
+    private RouteDetailDTO resultToRouteDetailDTO(String routeId, String segmentId, RouteRunningDetailResult result) {
+        RouteDetailDTO routeDetailDTO = new RouteDetailDTO();
+        BeanUtils.copyProperties(resultToRouteDTO(routeId, segmentId, result), routeDetailDTO);
+        List<BusDTO> busDTOList = new ArrayList<>();
+        result.getNearestBus().forEach(busPos -> {
+            BusDTO busDTO = new BusDTO();
+            BeanUtils.copyProperties(busPos, busDTO);
+            busDTOList.add(busDTO);
+        });
+        routeDetailDTO.setNearestBus(busDTOList);
+        return routeDetailDTO;
     }
 
     private SysSegment segmentRawToSysSegment(Segment segmentRaw) {

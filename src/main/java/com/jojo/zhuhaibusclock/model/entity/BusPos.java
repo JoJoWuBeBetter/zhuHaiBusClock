@@ -49,20 +49,20 @@ public class BusPos {
      * productid
      */
     @JSONField(name = "Productid")
-    private Long productId;
+    private String productId;
     /**
      * subRouteID
      */
     @JSONField(name = "SubRouteID")
-    private Long subRouteId;
+    private Integer subRouteId;
     /**
      * leaveOrStop
      */
     @JSONField(name = "LeaveOrStop")
-    private Long leaveOrStop;
+    private Integer leaveOrStop;
 
     @JSONField(name = "SpaceNum")
-    private Long spaceNum;
+    private Integer spaceNum;
 
     /**
      * BusPostion

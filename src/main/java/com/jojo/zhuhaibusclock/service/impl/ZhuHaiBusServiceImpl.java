@@ -53,7 +53,7 @@ public class ZhuHaiBusServiceImpl implements ZhuHaiBusService {
      */
     @Override
     public SearchBusByKeywordResult searchBusByKeyword(@NonNull int type, @NonNull String keyword) {
-        ZhuHaiBusResponseBody responseBody = null;
+        ZhuHaiBusResponseBody responseBody;
         try {
             responseBody = busApi.searchBusByKeyword(type, keyword).execute().body();
         } catch (IOException e) {
@@ -99,6 +99,7 @@ public class ZhuHaiBusServiceImpl implements ZhuHaiBusService {
         } catch (IOException e) {
             throw new NotFoundException("道路运行详情查询失败");
         }
+        log.info(JSON.toJSONString(responseBody));
         return responseBodyToRouteRunningDetailResult(responseBody);
     }
 

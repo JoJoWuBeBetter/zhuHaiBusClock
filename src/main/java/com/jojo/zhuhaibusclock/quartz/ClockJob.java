@@ -1,7 +1,5 @@
 package com.jojo.zhuhaibusclock.quartz;
 
-import com.alibaba.fastjson.JSON;
-import com.jojo.zhuhaibusclock.model.SysClock;
 import com.jojo.zhuhaibusclock.service.ClockService;
 import com.jojo.zhuhaibusclock.service.MessageService;
 import lombok.extern.slf4j.Slf4j;

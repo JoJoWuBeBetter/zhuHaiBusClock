@@ -47,6 +47,7 @@ public class ClockServiceImplTest {
 
     @Test
     public void goOffClock() {
+        clockService.goOffClock(13L);
     }
 
     @Test

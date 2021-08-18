@@ -1,16 +1,19 @@
 package com.jojo.zhuhaibusclock.service.impl;
 
 
+import com.alibaba.fastjson.JSON;
 import com.jojo.zhuhaibusclock.exception.ClockException;
 import com.jojo.zhuhaibusclock.exception.NotFoundException;
 import com.jojo.zhuhaibusclock.mapper.SysClockMapper;
 import com.jojo.zhuhaibusclock.mapper.SysUserClockMapper;
 import com.jojo.zhuhaibusclock.model.SysClock;
 import com.jojo.zhuhaibusclock.model.SysUserClock;
+import com.jojo.zhuhaibusclock.model.dto.BusDTO;
 import com.jojo.zhuhaibusclock.model.dto.RouteDTO;
+import com.jojo.zhuhaibusclock.model.dto.RouteDetailDTO;
+import com.jojo.zhuhaibusclock.model.dto.StationDTO;
 import com.jojo.zhuhaibusclock.model.params.ClockParam;
 import com.jojo.zhuhaibusclock.model.vo.ClockVO;
-import com.jojo.zhuhaibusclock.model.vo.StationVO;
 import com.jojo.zhuhaibusclock.service.ClockService;
 import com.jojo.zhuhaibusclock.service.MessageService;
 import com.jojo.zhuhaibusclock.service.RouteService;
@@ -22,6 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author JoJoWu
@@ -108,10 +112,31 @@ public class ClockServiceImpl implements ClockService {
         return clockVOList;
     }
 
-    //TODO 闹钟提醒未完成
     @Override
     public void goOffClock(Long clockId) {
         SysClock clock = getClockAndUser(clockId);
+        RouteDetailDTO routeDetailDTO = routeService.getRouteRunningDetail(clock.getRouteId(), clock.getSegmentId(), clock.getStationId());
+        String stationName = null;
+        List<StationDTO> stationDTOList = routeDetailDTO.getStations();
+        for (StationDTO stationDTO : stationDTOList) {
+            if (stationDTO.getStationId().equals(clock.getStationId())) {
+                stationName = stationDTO.getStationName();
+            }
+        }
+        BusDTO nearestBus = null;
+        List<BusDTO> nearestBusList = routeDetailDTO.getNearestBus();
+        for (BusDTO busDTO : nearestBusList) {
+            if (nearestBus == null) {
+                nearestBus = busDTO;
+            } else if (nearestBus.getSpaceNum() > busDTO.getSpaceNum() && busDTO.getSpaceNum() > 0) {
+                nearestBus = busDTO;
+            }
+        }
+        if (nearestBus != null) {
+            String title = "珠海公交闹钟提醒您";
+            String msg = String.format("%s已经抵达%s还有%d站到达%s", routeDetailDTO.getRouteName(), nearestBus.getArriveStaInfo(), nearestBus.getSpaceNum(), stationName);
+            messageService.pushMessage(clock.getUser().getBarkKey(), title, msg);
+        }
     }
 
     /**
