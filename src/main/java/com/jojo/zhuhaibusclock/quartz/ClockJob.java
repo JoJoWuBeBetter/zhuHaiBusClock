@@ -29,8 +29,5 @@ public class ClockJob extends QuartzJobBean {
     protected void executeInternal(JobExecutionContext context) {
         JobDataMap jobDataMap = context.getMergedJobDataMap();
         clockService.goOffClock(jobDataMap.getLong("clockId"));
-//        messageService.pushMessage(clock.getUser().getBarkKey(), JSON.toJSONString(clock.getUser()), JSON.toJSONString(clock));
-//        log.info(clock.toString());
-
     }
 }
