@@ -22,6 +22,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO 同步修改Quartz未完成
+
 /**
  * @author JoJoWu
  */
@@ -32,18 +34,16 @@ public class ClockServiceImpl implements ClockService {
     private final SysClockMapper clockMapper;
     private final SysUserClockMapper userClockMapper;
     private final MessageService messageService;
-    private final StationService stationService;
     private final RouteService routeService;
     private final ZhuHaiBusService zhuHaiBusService;
 
 
     public ClockServiceImpl(SysClockMapper clockMapper, SysUserClockMapper userClockMapper,
-                            MessageService messageService, StationService stationService, RouteService routeService, ZhuHaiBusService zhuHaiBusService) {
+                            MessageService messageService, RouteService routeService, ZhuHaiBusService zhuHaiBusService) {
 
         this.clockMapper = clockMapper;
         this.userClockMapper = userClockMapper;
         this.messageService = messageService;
-        this.stationService = stationService;
         this.routeService = routeService;
         this.zhuHaiBusService = zhuHaiBusService;
     }

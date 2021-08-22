@@ -25,9 +25,11 @@ public class QuartzServiceImplTest {
     @Resource
     SysClockMapper clockMapper;
 
+    private final Long TEST_CLOCK_ID = 21L;
+
     @Test
     public void addClockScheduleTest() {
-        SysClock clock = clockMapper.selectById(22L);
+        SysClock clock = clockMapper.selectById(TEST_CLOCK_ID);
         quartzService.addClockSchedule(clock);
         try {
             TimeUnit.SECONDS.sleep(3600);
@@ -41,7 +43,7 @@ public class QuartzServiceImplTest {
     @Test
     public void deleteClockScheduleTest() {
         SysClock clock = new SysClock();
-        clock.setId(22L);
+        clock.setId(TEST_CLOCK_ID);
         quartzService.deleteClockSchedule(clock.getId());
     }
 
