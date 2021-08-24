@@ -13,6 +13,7 @@ import com.jojo.zhuhaibusclock.model.entity.BusPos;
 import com.jojo.zhuhaibusclock.model.params.ClockParam;
 import com.jojo.zhuhaibusclock.model.result.RealtimeInfoListResult;
 import com.jojo.zhuhaibusclock.model.vo.ClockVO;
+import com.jojo.zhuhaibusclock.quartz.service.QuartzService;
 import com.jojo.zhuhaibusclock.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -21,8 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-
-// TODO 同步修改Quartz未完成
 
 /**
  * @author JoJoWu
@@ -36,16 +35,18 @@ public class ClockServiceImpl implements ClockService {
     private final MessageService messageService;
     private final RouteService routeService;
     private final ZhuHaiBusService zhuHaiBusService;
+    private final QuartzService quartzService;
 
 
     public ClockServiceImpl(SysClockMapper clockMapper, SysUserClockMapper userClockMapper,
-                            MessageService messageService, RouteService routeService, ZhuHaiBusService zhuHaiBusService) {
+                            MessageService messageService, RouteService routeService, ZhuHaiBusService zhuHaiBusService, QuartzService quartzService) {
 
         this.clockMapper = clockMapper;
         this.userClockMapper = userClockMapper;
         this.messageService = messageService;
         this.routeService = routeService;
         this.zhuHaiBusService = zhuHaiBusService;
+        this.quartzService = quartzService;
     }
 
     /**
@@ -62,11 +63,13 @@ public class ClockServiceImpl implements ClockService {
         SysUserClock userClock = new SysUserClock();
         userClock.setClockId(clock.getId());
         userClock.setUserId(clockParam.getUserId());
-
         userClockMapper.insert(userClock);
+
+        quartzService.addClockSchedule(clock);
         return clock;
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public SysClock updateClock(ClockParam clockParam) {
         SysClock clock = new SysClock();
@@ -75,7 +78,56 @@ public class ClockServiceImpl implements ClockService {
             throw new NotFoundException("闹钟不存在");
         }
         clockMapper.updateById(clock);
+
+        quartzService.deleteClockSchedule(clock.getId());
+        quartzService.addClockSchedule(clock);
         return clock;
+    }
+
+    /**
+     * 暂停闹钟
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void pauseClock(Long clockId) {
+        SysClock clock = clockMapper.selectById(clockId);
+        if (clock == null) {
+            throw new NotFoundException("无法获取对应的闹钟");
+        }
+        if (!clock.getIsEnable()) {
+            throw new ClockException("闹钟已经开启");
+        }
+        clock.setIsEnable(false);
+        clockMapper.updateById(clock);
+
+        quartzService.deleteClockSchedule(clock.getId());
+    }
+
+    /**
+     * 重启闹钟
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void resumeClock(Long clockId) {
+        SysClock clock = clockMapper.selectById(clockId);
+        if (clock == null) {
+            throw new NotFoundException("无法获取对应的闹钟");
+        }
+        if (clock.getIsEnable()) {
+            throw new ClockException("闹钟已经关闭");
+        }
+        clock.setIsEnable(true);
+        clockMapper.updateById(clock);
+
+        quartzService.addClockSchedule(clock);
+    }
+
+    @Transactional(rollbackFor = RuntimeException.class)
+    @Override
+    public void deleteClock(Long clockId) {
+        clockMapper.deleteById(clockId);
+        userClockMapper.deleteByClockId(clockId);
+        quartzService.deleteClockSchedule(clockId);
     }
 
 
@@ -135,43 +187,6 @@ public class ClockServiceImpl implements ClockService {
         }
     }
 
-    /**
-     * 暂停闹钟
-     */
-    @Override
-    public void pauseClock(Long clockId) {
-        SysClock clock = clockMapper.selectById(clockId);
-        if (clock == null) {
-            throw new NotFoundException("无法获取对应的闹钟");
-        }
-        if (!clock.getIsEnable()) {
-            throw new ClockException("闹钟已经开启");
-        }
-        clock.setIsEnable(false);
-        clockMapper.updateById(clock);
-    }
-
-    /**
-     * 暂停闹钟
-     */
-    @Override
-    public void resumeClock(Long clockId) {
-        SysClock clock = clockMapper.selectById(clockId);
-        if (clock == null) {
-            throw new NotFoundException("无法获取对应的闹钟");
-        }
-        if (clock.getIsEnable()) {
-            throw new ClockException("闹钟已经关闭");
-        }
-        clock.setIsEnable(true);
-        clockMapper.updateById(clock);
-    }
-
-    @Transactional(rollbackFor = RuntimeException.class)
-    @Override
-    public void deleteClock(Long clockId) {
-        clockMapper.deleteById(clockId);
-    }
 
     private ClockVO sysClockToClockVO(SysClock sysClock) {
         ClockVO clockVO = new ClockVO();

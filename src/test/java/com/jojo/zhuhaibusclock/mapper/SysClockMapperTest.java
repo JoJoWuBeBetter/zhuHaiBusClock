@@ -17,11 +17,24 @@ public class SysClockMapperTest {
     @Autowired
     private SysClockMapper clockMapper;
 
+    private final Long CLOCK_ID = 22L;
+
     @Test
     public void selectUserAndClockById() {
-        SysClock clock = clockMapper.selectClockAndUserById(9L);
+        SysClock clock = clockMapper.selectClockAndUserById(CLOCK_ID);
         log.info(clock.toString());
         Assert.assertNotNull(clock);
-//        Assert.assertNotNull();
+    }
+
+    @Test
+    public void updateById() {
+        SysClock clock = clockMapper.selectById(CLOCK_ID);
+        Assert.assertNotNull(clock);
+        boolean isEnable = clock.getIsEnable();
+        clock.setIsEnable(!isEnable);
+        clockMapper.updateById(clock);
+        clock = clockMapper.selectById(CLOCK_ID);
+        Assert.assertNotNull(clock);
+        Assert.assertEquals(clock.getIsEnable(), !isEnable);
     }
 }

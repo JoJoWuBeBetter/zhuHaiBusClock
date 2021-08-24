@@ -1,17 +1,12 @@
 package com.jojo.zhuhaibusclock;
 
-import com.google.gson.*;
 import com.jojo.zhuhaibusclock.config.ZhuHaiBusClockProps;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import java.lang.reflect.Type;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 
 /**
@@ -19,6 +14,7 @@ import java.time.format.DateTimeFormatter;
  */
 @SpringBootApplication
 @EnableConfigurationProperties(ZhuHaiBusClockProps.class)
+@EnableTransactionManagement
 public class ZhuHaiBusClockApplication {
 
 

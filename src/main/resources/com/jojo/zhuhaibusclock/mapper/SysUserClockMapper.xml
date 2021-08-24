@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jojo.zhuhaibusclock.mapper.SysUserClockMapper">
-  <resultMap id="BaseResultMap" type="com.jojo.zhuhaibusclock.model.SysUserClock">
-    <result column="user_id" jdbcType="BIGINT" property="userId" />
-    <result column="clock_id" jdbcType="BIGINT" property="clockId" />
-  </resultMap>
-  <insert id="insert" parameterType="com.jojo.zhuhaibusclock.model.SysUserClock">
-    insert into sys_user_clock (user_id, clock_id)
-    values (#{userId,jdbcType=BIGINT}, #{clockId,jdbcType=BIGINT})
-  </insert>
-  <insert id="insertSelective" parameterType="com.jojo.zhuhaibusclock.model.SysUserClock">
-    insert into sys_user_clock
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="userId != null">
-        user_id,
-      </if>
-      <if test="clockId != null">
-        clock_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="userId != null">
-        #{userId,jdbcType=BIGINT},
-      </if>
-      <if test="clockId != null">
-        #{clockId,jdbcType=BIGINT},
-      </if>
-    </trim>
-  </insert>
+    <resultMap id="BaseResultMap" type="com.jojo.zhuhaibusclock.model.SysUserClock">
+        <result column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="clock_id" jdbcType="BIGINT" property="clockId"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.jojo.zhuhaibusclock.model.SysUserClock">
+        insert into sys_user_clock (user_id, clock_id)
+        values (#{userId,jdbcType=BIGINT}, #{clockId,jdbcType=BIGINT})
+    </insert>
+    <insert id="insertSelective" parameterType="com.jojo.zhuhaibusclock.model.SysUserClock">
+        insert into sys_user_clock
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="clockId != null">
+                clock_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="clockId != null">
+                #{clockId,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+    <delete id="deleteByClockId" parameterType="java.lang.Long">
+        delete
+        from sys_user_clock
+        where clock_id = #{clockId,jdbcType=BIGINT}
+    </delete>
 </mapper>
