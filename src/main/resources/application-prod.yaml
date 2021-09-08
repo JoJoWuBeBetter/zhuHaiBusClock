@@ -3,11 +3,11 @@ server:
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://192.168.31.83:3306/zhuHai_bus
+    url: jdbc:mariadb://localhost:3306/zhuHai_bus
     username: root
-    password: root
+    password: Wu35746147258
   redis:
-    host: 192.168.31.83
+    host: localhost
   cache:
     redis:
       time-to-live: 1d

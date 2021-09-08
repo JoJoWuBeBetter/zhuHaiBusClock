@@ -16,4 +16,8 @@ public interface UserService {
      * @throws IOException 返回为空
      */
     Token getToken(String code) throws IOException;
+
+    boolean checkBarkKey(Long userId);
+
+    String updateBarkKey(Long userId,String barkUrl);
 }
