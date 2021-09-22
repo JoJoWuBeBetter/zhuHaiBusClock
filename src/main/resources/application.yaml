@@ -59,5 +59,8 @@ zhuhai-bus-clock:
   wx-app-id: wxc3fb2322c6d84df8
   wx-app-secret: 87d9cc73a1a290c0e1ba19b699f358f8
   test-bark-key: KQZynXmVoq6z7hhG5RLU97
+  clock-repeat-time: 2
+  clock-trigger-format: clock-%s-Trigger
+
 
 

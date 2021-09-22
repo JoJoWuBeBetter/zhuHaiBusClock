@@ -12,4 +12,6 @@ public class ZhuHaiBusClockProps {
     private String wxAppId;
     private String wxAppSecret;
     private String testBarkKey;
+    private Integer clockRepeatTime;
+    private String clockTriggerFormat;
 }

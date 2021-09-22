@@ -14,5 +14,15 @@
       "name": "zhuhai-bus-clock.test-bark-key",
       "type": "java.lang.String",
       "description": "Description for zhuhai-bus-clock.test-bark-key."
+    },
+    {
+      "name": "zhuhai-bus-clock.clock-repeat-time",
+      "type": "java.lang.Integer",
+      "description": "Description for zhuhai-bus-clock.clock-repeat-time."
+    },
+    {
+      "name": "zhuhai-bus-clock.clock-trigger-format",
+      "type": "java.lang.String",
+      "description": "Description for zhuhai-bus-clock.clock-trigger-format."
     }
   ] }

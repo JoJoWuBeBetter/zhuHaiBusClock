@@ -1,6 +1,7 @@
 package com.jojo.zhuhaibusclock.quartz.service;
 
 import com.alibaba.fastjson.JSON;
+import com.jojo.zhuhaibusclock.config.ZhuHaiBusClockProps;
 import com.jojo.zhuhaibusclock.exception.ClockException;
 import com.jojo.zhuhaibusclock.model.SysClock;
 import lombok.extern.slf4j.Slf4j;
@@ -8,7 +9,6 @@ import org.quartz.*;
 import org.quartz.impl.matchers.GroupMatcher;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
@@ -24,11 +24,16 @@ import java.util.List;
 public class QuartzServiceImpl implements QuartzService {
     private final Scheduler scheduler;
     private final JobDetail jobDetail;
-    private final String FORMAT = "clock-%s-Trigger";
+    private final ZhuHaiBusClockProps props;
+    private String FORMAT;
+    private Integer REPEAT_TIME;
 
-    public QuartzServiceImpl(Scheduler scheduler, JobDetail jobDetail) {
+    public QuartzServiceImpl(Scheduler scheduler, JobDetail jobDetail, ZhuHaiBusClockProps props) {
         this.scheduler = scheduler;
         this.jobDetail = jobDetail;
+        this.props = props;
+        FORMAT = props.getClockTriggerFormat();
+        REPEAT_TIME = props.getClockRepeatTime();
     }
 
     @Override
@@ -53,32 +58,38 @@ public class QuartzServiceImpl implements QuartzService {
     }
 
     private List<Trigger> getCronTriggers(SysClock clock) {
+        log.info("生成CronTriggers");
         List<Trigger> triggers = new ArrayList<>();
         LocalTime alarmTime = clock.getAlarmTime();
-        LocalTime alarmTimePlus = alarmTime.plusMinutes(5);
+        LocalTime alarmTimePlus = alarmTime.plusMinutes(REPEAT_TIME);
 
 
         if (alarmTime.getHour() == alarmTimePlus.getHour()) {
             String cronString = String.format("0 %d-%d %d ? * %s",
                     alarmTime.getMinute(), alarmTimePlus.getMinute(), alarmTime.getHour(), clock.getRepeatTime());
-            log.info(cronString);
             Trigger trigger = TriggerBuilder.newTrigger().forJob(jobDetail)
                     .withIdentity(clock.getId().toString(), String.format(FORMAT, clock.getId()))
                     .usingJobData("clockId", clock.getId())
+                    .usingJobData("triggerType", "CronTrigger")
                     .startAt(getStartDate(clock.getAlarmTime()))
                     .withSchedule(CronScheduleBuilder.cronSchedule(cronString).withMisfireHandlingInstructionIgnoreMisfires()
                     )
                     .build();
+            log.info("cronTrigger为单段Trigger,cronString:" + cronString);
             triggers.add(trigger);
         } else {
+            log.info("cronTrigger跨越小时，为双段Trigger");
             String cronStringFirstPart = String.format("0 %d-59 %d ? * %s",
                     alarmTime.getMinute(), alarmTime.getHour(), clock.getRepeatTime());
+            log.info("第一段cronString：" + cronStringFirstPart);
             String cronStringLastPart = String.format("0 0-%d %d ? * %s",
                     alarmTimePlus.getMinute(), alarmTimePlus.getHour(), clock.getRepeatTime());
+            log.info("第一段cronString：" + cronStringLastPart);
 
             triggers.add(TriggerBuilder.newTrigger().forJob(jobDetail)
                     .withIdentity(clock.getId().toString() + "F", String.format(FORMAT, clock.getId()))
                     .usingJobData("clockId", clock.getId())
+                    .usingJobData("triggerType", "CronTrigger")
                     .startAt(getStartDate(clock.getAlarmTime()))
                     .withSchedule(CronScheduleBuilder.cronSchedule(cronStringFirstPart).withMisfireHandlingInstructionIgnoreMisfires())
                     .build());
@@ -86,11 +97,13 @@ public class QuartzServiceImpl implements QuartzService {
             triggers.add(TriggerBuilder.newTrigger().forJob(jobDetail)
                     .withIdentity(clock.getId().toString() + "L", String.format(FORMAT, clock.getId()))
                     .usingJobData("clockId", clock.getId())
+                    .usingJobData("triggerType", "CronTrigger")
                     .startAt(getStartDate(clock.getAlarmTime()))
                     .withSchedule(CronScheduleBuilder.cronSchedule(cronStringLastPart).withMisfireHandlingInstructionIgnoreMisfires())
                     .build());
 
         }
+        log.info("生成CronTriggers完成");
         return triggers;
     }
 
@@ -99,9 +112,11 @@ public class QuartzServiceImpl implements QuartzService {
         return TriggerBuilder.newTrigger().forJob(jobDetail)
                 .withIdentity(clock.getId().toString(), groupName)
                 .usingJobData("clockId", clock.getId())
+                .usingJobData("triggerType", "SimpleTrigger")
                 .startAt(getStartDate(clock.getAlarmTime()))
                 .withSchedule(
-                        SimpleScheduleBuilder.simpleSchedule().withIntervalInMinutes(1).withRepeatCount(5))
+//                        SimpleScheduleBuilder.simpleSchedule().withIntervalInMinutes(1).withRepeatCount(REPEAT_TIME))
+                        SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(5).withRepeatCount(REPEAT_TIME))
                 .build();
     }
 
