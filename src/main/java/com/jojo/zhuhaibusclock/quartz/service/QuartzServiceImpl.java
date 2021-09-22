@@ -115,8 +115,7 @@ public class QuartzServiceImpl implements QuartzService {
                 .usingJobData("triggerType", "SimpleTrigger")
                 .startAt(getStartDate(clock.getAlarmTime()))
                 .withSchedule(
-//                        SimpleScheduleBuilder.simpleSchedule().withIntervalInMinutes(1).withRepeatCount(REPEAT_TIME))
-                        SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(5).withRepeatCount(REPEAT_TIME))
+                        SimpleScheduleBuilder.simpleSchedule().withIntervalInMinutes(1).withRepeatCount(REPEAT_TIME))
                 .build();
     }
 
