@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * 登陆验证拦截器
+ *
  * @author JoJoWu
  */
 public class AuthInterceptor implements HandlerInterceptor {
