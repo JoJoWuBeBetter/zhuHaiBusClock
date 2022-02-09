@@ -3,14 +3,15 @@ server:
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/zhuHai_bus
+    url: jdbc:mariadb://192.168.31.83:3306/zhuHai_bus
     username: root
-    password: Wu35746147258
+    password: root
   redis:
-    host: localhost
+    host: 192.168.31.83
 
 zhuhai-bus-clock:
   wx-app-id: wxc3fb2322c6d84df8
   wx-app-secret: 87d9cc73a1a290c0e1ba19b699f358f8
+
 
 

@@ -1,13 +1,9 @@
 server:
   port: 8080
+
 spring:
-  datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://192.168.31.83:3306/zhuHai_bus
-    username: root
-    password: root
-  redis:
-    host: 192.168.31.83
+  profiles:
+    active: dev
   cache:
     redis:
       time-to-live: 1d
@@ -56,8 +52,6 @@ logging:
     path: myLogs
 
 zhuhai-bus-clock:
-  wx-app-id: wxc3fb2322c6d84df8
-  wx-app-secret: 87d9cc73a1a290c0e1ba19b699f358f8
   test-bark-key: KQZynXmVoq6z7hhG5RLU97
   clock-repeat-time: 2
   clock-trigger-format: clock-%s-Trigger

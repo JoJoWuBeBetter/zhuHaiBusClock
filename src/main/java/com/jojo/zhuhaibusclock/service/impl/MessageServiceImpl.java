@@ -18,17 +18,17 @@ import java.io.IOException;
 @Service
 @Slf4j
 public class MessageServiceImpl implements MessageService {
-    private final BarkApi barkApi;
+    private final BarkApi api;
 
-    public MessageServiceImpl(BarkApi barkApi) {
-        this.barkApi = barkApi;
+    public MessageServiceImpl(BarkApi api) {
+        this.api = api;
     }
 
     @Override
     public void pushMessage(String key, String body) {
         BarkResponseBody responseBody;
         try {
-            responseBody = barkApi.pushMessage(key, body).execute().body();
+            responseBody = api.pushMessage(key, body).execute().body();
         } catch (IOException | RetrofitException e) {
             log.error(e.getMessage());
             throw new SeverErrorException(e.getMessage());
@@ -41,7 +41,7 @@ public class MessageServiceImpl implements MessageService {
     public void pushMessage(String key, String title, String body) {
         BarkResponseBody responseBody;
         try {
-            responseBody = barkApi.pushMessage(key, title, body).execute().body();
+            responseBody = api.pushMessage(key, title, body).execute().body();
         } catch (IOException | RetrofitException e) {
             log.error(e.getMessage());
             throw new SeverErrorException(e.getMessage());
