@@ -11,6 +11,7 @@ import com.jojo.zhuhaibusclock.remote.WxApiResponseBody;
 import com.jojo.zhuhaibusclock.security.jwt.JwtUtil;
 import com.jojo.zhuhaibusclock.service.MessageService;
 import com.jojo.zhuhaibusclock.service.UserService;
+import com.jojo.zhuhaibusclock.service.WxApiService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,16 +29,14 @@ import java.util.regex.Pattern;
 public class UserServiceImpl implements UserService {
 
     private final SysUserMapper userMapper;
-    private final ZhuHaiBusClockProps props;
     private final MessageService messageService;
-    private final WxApi wxApi;
+    private final WxApiService wxApiService;
     private final JwtUtil jwtUtil;
 
-    public UserServiceImpl(SysUserMapper userMapper, ZhuHaiBusClockProps props, MessageService messageService, WxApi wxApi, JwtUtil jwtUtil) {
+    public UserServiceImpl(SysUserMapper userMapper, MessageService messageService, WxApiService wxApiService, JwtUtil jwtUtil) {
         this.userMapper = userMapper;
-        this.props = props;
         this.messageService = messageService;
-        this.wxApi = wxApi;
+        this.wxApiService = wxApiService;
         this.jwtUtil = jwtUtil;
     }
 
@@ -52,12 +51,7 @@ public class UserServiceImpl implements UserService {
     public Token getToken(String code) {
         WxApiResponseBody responseBody;
 
-        try {
-            responseBody = wxApi.jsCodeToSession(
-                    props.getWxAppId(), props.getWxAppSecret(), code, "authorization_code").execute().body();
-        } catch (IOException e) {
-            throw new WxApiRequestException(e.getMessage());
-        }
+        responseBody = wxApiService.jsCodeToSession(code);
 
         if (responseBody == null) {
             throw new WxApiRequestException("微信API请求为空");

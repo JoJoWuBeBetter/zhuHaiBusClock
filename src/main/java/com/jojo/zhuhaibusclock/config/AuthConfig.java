@@ -19,6 +19,6 @@ public class AuthConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(initAuthInterceptor()).addPathPatterns("/**").excludePathPatterns("/user/login");
+        registry.addInterceptor(initAuthInterceptor()).addPathPatterns("/**").excludePathPatterns("/user/login", "/api/checkWxValid");
     }
 }

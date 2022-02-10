@@ -3,7 +3,6 @@ package com.jojo.zhuhaibusclock.controller;
 import com.jojo.zhuhaibusclock.model.BaseResponse;
 import com.jojo.zhuhaibusclock.model.entity.Token;
 import com.jojo.zhuhaibusclock.model.params.BarkUrlParam;
-import com.jojo.zhuhaibusclock.model.params.ClockParam;
 import com.jojo.zhuhaibusclock.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
