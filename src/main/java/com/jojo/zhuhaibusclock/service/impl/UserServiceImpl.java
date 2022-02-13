@@ -1,13 +1,11 @@
 package com.jojo.zhuhaibusclock.service.impl;
 
-import com.jojo.zhuhaibusclock.config.ZhuHaiBusClockProps;
 import com.jojo.zhuhaibusclock.exception.NotFoundException;
 import com.jojo.zhuhaibusclock.exception.WxApiRequestException;
 import com.jojo.zhuhaibusclock.mapper.SysUserMapper;
 import com.jojo.zhuhaibusclock.model.SysUser;
 import com.jojo.zhuhaibusclock.model.entity.Token;
-import com.jojo.zhuhaibusclock.remote.WxApi;
-import com.jojo.zhuhaibusclock.remote.WxApiResponseBody;
+import com.jojo.zhuhaibusclock.remote.body.wxapi.response.SessionResponseBody;
 import com.jojo.zhuhaibusclock.security.jwt.JwtUtil;
 import com.jojo.zhuhaibusclock.service.MessageService;
 import com.jojo.zhuhaibusclock.service.UserService;
@@ -16,8 +14,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
-import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -49,7 +45,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
     public Token getToken(String code) {
-        WxApiResponseBody responseBody;
+        SessionResponseBody responseBody;
 
         responseBody = wxApiService.jsCodeToSession(code);
 

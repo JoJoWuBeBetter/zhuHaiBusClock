@@ -5,6 +5,8 @@ import com.github.lianjiatech.retrofit.spring.boot.exception.RetrofitException;
 import com.jojo.zhuhaibusclock.exception.SeverErrorException;
 import com.jojo.zhuhaibusclock.remote.BarkApi;
 import com.jojo.zhuhaibusclock.remote.BarkResponseBody;
+import com.jojo.zhuhaibusclock.remote.body.wxapi.request.SubscribeMessageRequestBody;
+import com.jojo.zhuhaibusclock.remote.body.wxapi.request.TemplateData;
 import com.jojo.zhuhaibusclock.service.MessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -18,17 +20,20 @@ import java.io.IOException;
 @Service
 @Slf4j
 public class MessageServiceImpl implements MessageService {
-    private final BarkApi api;
+    private final BarkApi barkApi;
+    private final WxApiServiceImpl wxApi;
 
-    public MessageServiceImpl(BarkApi api) {
-        this.api = api;
+    public MessageServiceImpl(BarkApi api, WxApiServiceImpl wxApi) {
+        this.barkApi = api;
+
+        this.wxApi = wxApi;
     }
 
     @Override
     public void pushMessage(String key, String body) {
         BarkResponseBody responseBody;
         try {
-            responseBody = api.pushMessage(key, body).execute().body();
+            responseBody = barkApi.pushMessage(key, body).execute().body();
         } catch (IOException | RetrofitException e) {
             log.error(e.getMessage());
             throw new SeverErrorException(e.getMessage());
@@ -41,7 +46,7 @@ public class MessageServiceImpl implements MessageService {
     public void pushMessage(String key, String title, String body) {
         BarkResponseBody responseBody;
         try {
-            responseBody = api.pushMessage(key, title, body).execute().body();
+            responseBody = barkApi.pushMessage(key, title, body).execute().body();
         } catch (IOException | RetrofitException e) {
             log.error(e.getMessage());
             throw new SeverErrorException(e.getMessage());
@@ -50,9 +55,17 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public void pushMessage(String body) {
-
+    public void pushWxMessage(String openId, String title, String body) {
+        SubscribeMessageRequestBody requestBody = new SubscribeMessageRequestBody();
+        requestBody.setTouser(openId);
+        requestBody.setTemplateId("Ajflo4hzcFuEt57eAF5-6wnUCZa86Uh8Gvd64KnEAX8");
+        TemplateData data = new TemplateData();
+        data.setTitle(new TemplateData.Title(title));
+        data.setBody(new TemplateData.Body(body));
+        requestBody.setMessageData(data);
+        wxApi.sendSubscribeMessage(requestBody);
     }
+
 
     private void checkRequest(BarkResponseBody responseBody) {
         if (responseBody == null) {

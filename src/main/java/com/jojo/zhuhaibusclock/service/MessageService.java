@@ -8,5 +8,5 @@ public interface MessageService {
 
     void pushMessage(String key, String title, String body);
 
-    void pushMessage(String body);
+    void pushWxMessage(String openId, String title, String body);
 }

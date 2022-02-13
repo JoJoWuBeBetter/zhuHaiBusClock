@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.jojo.zhuhaibusclock.config.ZhuHaiBusClockProps;
 import com.jojo.zhuhaibusclock.exception.ClockException;
 import com.jojo.zhuhaibusclock.model.SysClock;
+import com.jojo.zhuhaibusclock.model.SysUser;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.User;
 import org.quartz.*;
 import org.quartz.impl.matchers.GroupMatcher;
 import org.springframework.stereotype.Service;
@@ -40,8 +42,11 @@ public class QuartzServiceImpl implements QuartzService {
     public void addClockSchedule(SysClock clock) {
         log.info("添加闹钟计划");
         List<Trigger> triggers = new ArrayList<>();
+        SysUser user = clock.getUser();
+
         if (clock.getRepeatTime() == null) {
-            triggers.add(getOneTimeTrigger(clock));
+//            判断用户有没有绑定Bark
+            triggers.add(getOneTimeTrigger(clock, user.getBarkKey() == null ? 3 : REPEAT_TIME));
         } else {
             triggers.addAll(getCronTriggers(clock));
         }
@@ -107,7 +112,7 @@ public class QuartzServiceImpl implements QuartzService {
         return triggers;
     }
 
-    private Trigger getOneTimeTrigger(SysClock clock) {
+    private Trigger getOneTimeTrigger(SysClock clock, Integer repeatTime) {
         String groupName = String.format(FORMAT, clock.getId());
         return TriggerBuilder.newTrigger().forJob(jobDetail)
                 .withIdentity(clock.getId().toString(), groupName)
@@ -115,7 +120,7 @@ public class QuartzServiceImpl implements QuartzService {
                 .usingJobData("triggerType", "SimpleTrigger")
                 .startAt(getStartDate(clock.getAlarmTime()))
                 .withSchedule(
-                        SimpleScheduleBuilder.simpleSchedule().withIntervalInMinutes(1).withRepeatCount(REPEAT_TIME))
+                        SimpleScheduleBuilder.simpleSchedule().withIntervalInMinutes(1).withRepeatCount(repeatTime))
                 .build();
     }
 

@@ -30,6 +30,7 @@ public class ClockJob extends QuartzJobBean {
     @Override
     protected void executeInternal(JobExecutionContext context) {
         JobDataMap jobDataMap = context.getMergedJobDataMap();
+//        闹钟响起
         clockService.goOffClock(jobDataMap.getLong("clockId"));
         String simpleTrigger = "SimpleTrigger";
         String triggerType = jobDataMap.getString("triggerType");

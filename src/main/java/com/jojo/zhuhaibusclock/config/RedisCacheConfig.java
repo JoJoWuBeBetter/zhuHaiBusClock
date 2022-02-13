@@ -1,5 +1,6 @@
 package com.jojo.zhuhaibusclock.config;
 
+import org.springframework.boot.autoconfigure.cache.RedisCacheManagerBuilderCustomizer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,6 +24,13 @@ public class RedisCacheConfig {
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(
                         new GenericJackson2JsonRedisSerializer())
                 );
+    }
+
+    @Bean
+    public RedisCacheManagerBuilderCustomizer redisCacheManagerBuilderCustomizer() {
+        return (builder) -> builder
+                .withCacheConfiguration("access_token",
+                        RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofMillis(7000)));
     }
 }
 

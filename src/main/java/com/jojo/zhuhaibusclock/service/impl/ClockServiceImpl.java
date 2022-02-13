@@ -7,6 +7,7 @@ import com.jojo.zhuhaibusclock.exception.NotFoundException;
 import com.jojo.zhuhaibusclock.mapper.SysClockMapper;
 import com.jojo.zhuhaibusclock.mapper.SysUserClockMapper;
 import com.jojo.zhuhaibusclock.model.SysClock;
+import com.jojo.zhuhaibusclock.model.SysUser;
 import com.jojo.zhuhaibusclock.model.SysUserClock;
 import com.jojo.zhuhaibusclock.model.dto.RouteDTO;
 import com.jojo.zhuhaibusclock.model.entity.BusPos;
@@ -65,6 +66,7 @@ public class ClockServiceImpl implements ClockService {
         userClock.setUserId(clockParam.getUserId());
         userClockMapper.insert(userClock);
 
+        clock = clockMapper.selectClockAndUserById(clock.getId());
         quartzService.addClockSchedule(clock);
         return clock;
     }
@@ -80,6 +82,7 @@ public class ClockServiceImpl implements ClockService {
         clockMapper.updateById(clock);
 
         quartzService.deleteClockSchedule(clock.getId());
+        clock = clockMapper.selectClockAndUserById(clock.getId());
         quartzService.addClockSchedule(clock);
         return clock;
     }
@@ -119,6 +122,7 @@ public class ClockServiceImpl implements ClockService {
         clock.setIsEnable(true);
         clockMapper.updateById(clock);
 
+        clock = clockMapper.selectClockAndUserById(clock.getId());
         quartzService.addClockSchedule(clock);
     }
 
@@ -179,11 +183,19 @@ public class ClockServiceImpl implements ClockService {
             String title = "珠海公交闹钟提醒您";
             String msg;
             if (nearestBus.getDistance() != null) {
-                msg = String.format("%s已经抵达%s,还有%d站到达%s", result.getRouteName(), nearestBus.getArriveStaName(), nearestBus.getSpaceNum(), result.getStationName());
+                msg = nearestBus.getSpaceNum() == 0 ?
+                        String.format("%s已经到达%s", result.getRouteName(), result.getStationName()) :
+                        String.format("%s还有%d站到达%s", result.getRouteName(), nearestBus.getSpaceNum(), result.getStationName());
             } else {
                 msg = String.format("%s%s开往%s", result.getRouteName(), nearestBus.getForeCastInfo1(), result.getStationName());
             }
-            messageService.pushMessage(clock.getUser().getBarkKey(), title, msg);
+
+            SysUser user = clock.getUser();
+            if (user.getBarkKey() == null) {
+                messageService.pushWxMessage(user.getOpenId(), title, msg);
+            } else {
+                messageService.pushMessage(user.getBarkKey(), title, msg);
+            }
         }
     }
 
